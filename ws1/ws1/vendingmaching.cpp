@@ -17,7 +17,6 @@ using namespace sdds;
 
 int main() {
 
-      
     bool done = false;
     loadDrinks();
     cout << "Welcome to the Seneca Vending Machine" << endl << endl;
