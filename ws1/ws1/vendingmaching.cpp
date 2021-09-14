@@ -17,7 +17,7 @@ using namespace sdds;
 
 int main() {
 
-    const int MAXDRINKS = 5;
+    
   
     bool done = false;
     loadDrinks();

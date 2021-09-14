@@ -2,6 +2,8 @@
 #define SDDS_IODRINK_H
 
 namespace sdds {
+	
+	const int MAXDRINKS = 5;
 
 	struct Drink {
 		char name[10];
@@ -10,7 +12,7 @@ namespace sdds {
 		int quantity;
 	};
 
-	Drink machine[MAXDRINKS];
+	
 
 
 	void loadDrinks();

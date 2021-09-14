@@ -2,10 +2,13 @@
 #include <iostream>
 #include <iomanip>
 #include "drink.h"
-
+#include "util.h"
 using namespace std;
-namespace sdds {
 
+
+namespace sdds {
+    
+    Drink machine[MAXDRINKS];
 
     void loadDrinks() {
         machine[0] = Drink{ "Coffee", 300, 1.50, 5 };
