@@ -17,6 +17,7 @@ using namespace std;
 
 namespace sdds {
     
+    const int MAXDRINKS = 5;
     Drink machine[MAXDRINKS];
 
     void loadDrinks() {

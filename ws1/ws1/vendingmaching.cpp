@@ -32,11 +32,3 @@ int main() {
     cout << "\nThank you and come again" << endl;
     return 0;
 }
-
-
-
-
-
-
-
-
