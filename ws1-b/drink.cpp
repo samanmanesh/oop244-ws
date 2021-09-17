@@ -1,18 +1,24 @@
 // ===================================================================================
 //  Workshop: #1
-//  Part: 1 (Lab) 
+//  Part: 2 (DIY) 
 // ===================================================================================
 //  Student Name  : Mohammadhossein Sobhanmanesh
 //  Student ID    : 116523200
 //  Student Email : msobhanmanesh@myseneca.ca
+//  Date          : 
 //  Course Section: OOP244-NAA
 // ===================================================================================
+// I have done all the coding by myself and only copied the code that my professor 
+// provided to complete my workshops and assignments.
+// ===================================================================================
 
+#define  _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <iomanip>
 #include <cstdio>
 #include "drink.h"
 #include "util.h"
+#include "file.h"
 using namespace std;
 
 
@@ -22,18 +28,36 @@ namespace sdds {
     const int MAXDRINKS = 5;
     Drink machine[MAXDRINKS];
 
-    /*void loadDrinks() {
-        machine[0] = Drink{ "Coffee", 300, 1.50, 5 };
-        machine[1] = Drink{ "Tea", 250, 1.25, 3 };
-        machine[2] = Drink{ "Cola", 350, 2.50, 2 };
-        machine[3] = Drink{ "Water", 500, 3.10, 15 };
-        machine[4] = Drink{ "Beer", 350, 5.25, 0 };
-    }*/
-
+    
     void loadDrinksFromFile(const char* filename) {
 
+        loadFile(filename, MAXDRINKS, machine);
         
+        
+        /*int i = 0;
+        
+        FILE* fp = fopen( filename , "r");
+        cout << fp->_Placeholder<< "target of fp" << endl;
 
+        if (fp != NULL)
+        {
+            for (i = 0; i < MAXDRINKS; i++)
+            {
+                fscanf(fp, "%s %d %lf %d[^\n]",
+                    &machine[i].name,
+                    &machine[i].volume,
+                    &machine[i].price,
+                    &machine[i].quantity
+              );
+            };
+            fclose(fp);
+            fp = NULL;
+        }
+        else
+        {
+            cout << "ERROR: Unable to open file for reading" << endl;
+        }*/
+         
     }
 
     void drinkMenu() {

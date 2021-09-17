@@ -1,11 +1,15 @@
 // ===================================================================================
 //  Workshop: #1
-//  Part: 1 (Lab) 
+//  Part: 2 (DIY) 
 // ===================================================================================
 //  Student Name  : Mohammadhossein Sobhanmanesh
 //  Student ID    : 116523200
 //  Student Email : msobhanmanesh@myseneca.ca
+//  Date          : 
 //  Course Section: OOP244-NAA
+// ===================================================================================
+// I have done all the coding by myself and only copied the code that my professor 
+// provided to complete my workshops and assignments.
 // ===================================================================================
 
 #include <iostream>
@@ -19,9 +23,9 @@ int main() {
 
     bool done = false;
     
-    loadDrinks();
+    //loadDrinks();
 
-
+    loadDrinksFromFile("drinks.txt"); // for DIY
 
     cout << "Welcome to the Seneca Vending Machine" << endl << endl;
     while (!done) {
