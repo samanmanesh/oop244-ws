@@ -1,0 +1,9 @@
+
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+.vs/*
+
+/ws1-a/*
+!/ws1-a/ws1/*.cpp
+!/ws1-a/ws1/*.h
