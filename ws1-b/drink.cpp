@@ -5,7 +5,7 @@
 //  Student Name  : Mohammadhossein Sobhanmanesh
 //  Student ID    : 116523200
 //  Student Email : msobhanmanesh@myseneca.ca
-//  Date          : 
+//  Date          : 2020-09-17
 //  Course Section: OOP244-NAA
 // ===================================================================================
 // I have done all the coding by myself and only copied the code that my professor 
@@ -15,7 +15,6 @@
 #define  _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <iomanip>
-#include <cstdio>
 #include "drink.h"
 #include "util.h"
 #include "file.h"
@@ -31,34 +30,9 @@ namespace sdds {
     
     void loadDrinksFromFile(const char* filename) {
 
-        loadFile(filename, MAXDRINKS, machine);
+        loadDrinksFile(filename, MAXDRINKS, machine);
         
-        
-        /*int i = 0;
-        
-        FILE* fp = fopen( filename , "r");
-        cout << fp->_Placeholder<< "target of fp" << endl;
-
-        if (fp != NULL)
-        {
-            for (i = 0; i < MAXDRINKS; i++)
-            {
-                fscanf(fp, "%s %d %lf %d[^\n]",
-                    &machine[i].name,
-                    &machine[i].volume,
-                    &machine[i].price,
-                    &machine[i].quantity
-              );
-            };
-            fclose(fp);
-            fp = NULL;
-        }
-        else
-        {
-            cout << "ERROR: Unable to open file for reading" << endl;
-        }*/
-         
-    }
+     }
 
     void drinkMenu() {
         cout << "-----------Available Drinks-----------" << endl;

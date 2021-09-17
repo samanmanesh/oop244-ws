@@ -5,7 +5,7 @@
 //  Student Name  : Mohammadhossein Sobhanmanesh
 //  Student ID    : 116523200
 //  Student Email : msobhanmanesh@myseneca.ca
-//  Date          : 
+//  Date          : 2020-09-17
 //  Course Section: OOP244-NAA
 // ===================================================================================
 // I have done all the coding by myself and only copied the code that my professor 
@@ -18,11 +18,9 @@
 #include"drink.h"
 using namespace std;
 
-
-
 namespace sdds {
 	
-	void loadFile(const char* filename, int maxSize, Drink* relatedStruct) {
+	void loadDrinksFile(const char* filename, int maxSize, Drink* relatedStruct) {
 
         int i = 0;
 
@@ -47,11 +45,6 @@ namespace sdds {
             cout << "ERROR: Unable to open file for reading" << endl;
         }
 
-
 	}
-
-	
-
-
 
 }

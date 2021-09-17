@@ -5,7 +5,7 @@
 //  Student Name  : Mohammadhossein Sobhanmanesh
 //  Student ID    : 116523200
 //  Student Email : msobhanmanesh@myseneca.ca
-//  Date          : 
+//  Date          : 2020-09-17
 //  Course Section: OOP244-NAA
 // ===================================================================================
 // I have done all the coding by myself and only copied the code that my professor 
@@ -22,8 +22,6 @@ using namespace sdds;
 int main() {
 
     bool done = false;
-    
-    //loadDrinks();
 
     loadDrinksFromFile("drinks.txt"); // for DIY
 
