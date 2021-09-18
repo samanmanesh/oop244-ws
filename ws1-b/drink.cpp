@@ -19,6 +19,7 @@
 #include "util.h"
 #include "file.h"
 using namespace std;
+using namespace sdds;
 
 
 
@@ -26,11 +27,11 @@ namespace sdds {
     
     const int MAXDRINKS = 5;
     Drink machine[MAXDRINKS];
-
+     Drink *pMachine = machine;
     
     void loadDrinksFromFile(const char* filename) {
 
-        loadDrinksFile(filename, MAXDRINKS, machine);
+        loadDrinksFile(filename, MAXDRINKS, pMachine);
         
      }
 
