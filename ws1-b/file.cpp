@@ -17,6 +17,7 @@
 #include <cstdio>
 #include"drink.h"
 using namespace std;
+using namespace sdds;
 
 namespace sdds {
 	
@@ -31,7 +32,7 @@ namespace sdds {
             for (i = 0; i < maxSize; i++)
             {
                 fscanf(fp, "%s %d %lf %d[^\n]",
-                    &relatedStruct[i].name,
+                    relatedStruct[i].name,
                     &relatedStruct[i].volume,
                     &relatedStruct[i].price,
                     &relatedStruct[i].quantity
