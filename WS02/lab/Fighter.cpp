@@ -51,11 +51,11 @@ namespace sdds {
 		int prevSize = myCompetition.numfighters;
 		int newSize = prevSize + 1;
 		int i;
+		int j;
 		Fighter* newFighter = nullptr;
-	
 		newFighter = new Fighter[newSize];
 
-		int j;
+		
 			for (i = 0; i < prevSize; i++)
 			{
 				//newFighter[i].name = myCompetition.fighters[i].name;
@@ -68,7 +68,13 @@ namespace sdds {
 				newFighter[i].power = myCompetition.fighters[i].power;
 			};
 				
+			cout << "Enter the information of the new fighter:" << endl;
+			fighter(newFighter[newSize].name);
+			fighter(newFighter[newSize].power);
 
+			delete[] myCompetition.fighters;
+			myCompetition.fighters = newFighter;
+			myCompetition.numfighters++;
 
 	}
 }
