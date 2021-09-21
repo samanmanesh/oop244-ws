@@ -14,6 +14,26 @@ namespace sdds {
 	};
 
 	//TODO: Declare the prototypes for the functions required as per the lab instructions
+	void fighter(char* name);
+
+	void fighter(int& power);
+
+	void display(const Fighter& myFighter);
+
+	void display(const Competition& mycompetition);
+
+	void addFighter(Competition& myCompetition);
+
+	void removeFighter(Competition& mycompetition, const Fighter& loserFighter);
+
+	int findFighter(const Competition& mycompetition, const Fighter& theFighter);
+
+	bool fight(const Fighter& f1, const Fighter& f2);
+
+	void fight(Competition& mycompetition, Fighter& f1, Fighter& f2);
+
+
+
 
 }
 #endif /* FIGHTER_H */
