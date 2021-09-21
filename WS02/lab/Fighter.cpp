@@ -15,7 +15,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "Fighter.h" 
-usding namespace std;
+using namespace std;
 using namespace sdds;
 
 namespace sdds {
@@ -33,7 +33,7 @@ namespace sdds {
 
 	void display(const Fighter& myFighter) {
 
-		cout << "Name: "myFighter.name ", Power: "myFighter.power << endl;
+		cout << "Name: " << myFighter.name <<", Power: " << myFighter.power << endl;
 
 	}
 
@@ -48,8 +48,27 @@ namespace sdds {
 	}
 
 	void addFighter(Competition& myCompetition) {
-		int size = myCompetition.numfighters
-			myCompetition.fighters = new Fighter[size+1];
+		int prevSize = myCompetition.numfighters;
+		int newSize = prevSize + 1;
+		int i;
+		Fighter* newFighter = nullptr;
+	
+		newFighter = new Fighter[newSize];
+
+		int j;
+			for (i = 0; i < prevSize; i++)
+			{
+				//newFighter[i].name = myCompetition.fighters[i].name;
+
+				for ( j = 0; j < MAX_NAME+1; j++)
+				{
+					newFighter[i].name[j] = myCompetition.fighters[i].name[j];
+				}
+
+				newFighter[i].power = myCompetition.fighters[i].power;
+			};
+				
+
 
 	}
 }
