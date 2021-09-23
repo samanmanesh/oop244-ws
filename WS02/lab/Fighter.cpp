@@ -14,6 +14,7 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <cstring>
 #include "Fighter.h" 
 using namespace std;
 using namespace sdds;
@@ -50,21 +51,20 @@ namespace sdds {
 	void addFighter(Competition& myCompetition) {
 		int prevSize = myCompetition.numfighters;
 		int newSize = prevSize + 1;
-		int i;
-		int j;
+		
 		Fighter* newFighter = nullptr;
 		newFighter = new Fighter[newSize];
 
 		
-			for (i = 0; i < prevSize; i++)
+			for (int i = 0; i < newSize; i++)
 			{
 				//newFighter[i].name = myCompetition.fighters[i].name;
-
-				for ( j = 0; j < MAX_NAME+1; j++)
+				/*for (int j = 0; j < MAX_NAME+1; j++)
 				{
 					newFighter[i].name[j] = myCompetition.fighters[i].name[j];
-				}
+				}*/
 
+				strcpy(newFighter[i].name, myCompetition.fighters[i].name);
 				newFighter[i].power = myCompetition.fighters[i].power;
 			};
 				
@@ -73,6 +73,8 @@ namespace sdds {
 			fighter(newFighter[newSize].power);
 
 			delete[] myCompetition.fighters;
+			myCompetition.fighters = nullptr;
+
 			myCompetition.fighters = newFighter;
 			myCompetition.numfighters++;
 
