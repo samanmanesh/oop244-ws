@@ -77,6 +77,73 @@ namespace sdds {
 
 			myCompetition.fighters = newFighter;
 			myCompetition.numfighters++;
+	}
+
+
+	int findFighter(const Competition& mycompetition, const Fighter& theFighter) {
+		int foundIndex = -1;
+
+		for (int i = 0; i < mycompetition.numfighters; i++)
+		{
+			if (mycompetition.fighters[i].name == theFighter.name)  foundIndex = i;
+		}
+
+		return foundIndex;
+	}
+
+	void removeFighter(Competition& mycompetition, const Fighter& loserFighter) {
+		int prevSize = mycompetition.numfighters;
+		int newSize = prevSize - 1;
+
+		Fighter* newFighter = nullptr;
+		newFighter = new Fighter[newSize];
+		int loserFighterIndex = findFighter(mycompetition, loserFighter);
+
+		if (loserFighterIndex != -1) {
+
+			for (int i = 0; i < newSize; i++)
+			{
+				if (i != loserFighterIndex) {
+					//if (mycompetition.fighters[loserFighterIndex].name != mycompetition.fighters[i].name){
+					strcpy(newFighter[i].name, mycompetition.fighters[i].name);
+					newFighter[i].power = mycompetition.fighters[i].power;
+				}
+			}
+
+			mycompetition.numfighters--;
+		}
+
+		delete[] mycompetition.fighters;
+		mycompetition.fighters = nullptr;
+
+		mycompetition.fighters = newFighter;
+
 
 	}
+
+	bool fight(const Fighter& f1, const Fighter& f2) {
+		bool result = false;
+		
+		if (f1.power > f2.power) result = true;
+		return result;
+	}
+
+	void fight(Competition& mycompetition, Fighter& f1, Fighter& f2) {
+
+		cout << "    " << f1.name << " will fight " << f2.name << "..." << endl;
+
+		if (fight(f1, f2)) {
+			
+			removeFighter(mycompetition, f2);
+			cout << "    The winner => " << f1.name << endl;
+		}
+		else
+		{
+			removeFighter(mycompetition, f1);
+			cout << "    The winner => " << f2.name << endl;
+		}
+
+
+	}
+
 }
