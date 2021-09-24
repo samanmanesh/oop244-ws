@@ -32,9 +32,6 @@ namespace sdds {
 
 	void fight(Competition& mycompetition, Fighter& f1, Fighter& f2);
 
-
-
-
 }
 #endif /* FIGHTER_H */
 
