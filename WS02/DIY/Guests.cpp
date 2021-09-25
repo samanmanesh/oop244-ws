@@ -83,8 +83,8 @@ namespace sdds {
 			newGuestPtr[i].m_phno = theGuestList.m_gst[i].m_phno;
 		}
 
-		strcpy(newGuestPtr[prevSize].m_name, aGuest.m_name);
-		newGuestPtr[prevSize].m_phno = aGuest.m_phno;
+		strcpy(newGuestPtr[theGuestList.m_noOfGuests].m_name, aGuest.m_name);
+		newGuestPtr[theGuestList.m_noOfGuests].m_phno = aGuest.m_phno;
 		delete[] theGuestList.m_gst;
 		theGuestList.m_gst = newGuestPtr;
 		newGuestPtr = nullptr;
