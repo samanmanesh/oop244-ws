@@ -5,7 +5,7 @@
 //  Student Name  : Mohammadhossein Sobhanmanesh
 //  Student ID    : 116523200
 //  Student Email : msobhanmanesh@myseneca.ca
-//  Date          : 2020-09-21
+//  Date          : 2020-09-24
 //  Course Section: OOP244-NAA
 // ===================================================================================
 // I have done all the coding by myself and only copied the code that my professor 
@@ -108,8 +108,7 @@ namespace sdds {
 					newFighter[i].power = mycompetition.fighters[i+1].power;
 
 				}
-				//strcpy(newFighter[i].name, mycompetition.fighters[i+1].name);
-				//newFighter[i].power = mycompetition.fighters[i+1].power;
+				
 			}
 	
 			mycompetition.numfighters--;

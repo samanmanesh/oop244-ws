@@ -12,14 +12,14 @@ using namespace sdds;
 int main() {
    bool done = false;
    char resturantName[51];
-   Guest gst = { "", {0,0} };
-   GuestList gl = { nullptr, 0 };
+   //Guest gst = { "", {0,0} };
+   //GuestList gl = { nullptr, 0 };
    PhoneNumber phno;
    cout << "Please enter the name of the restaurant: ";
-   read(resturantName, 50);
+  // read(resturantName, 50);
    read(phno);
    cout << "Guest entry..." << endl;
-   while (!done) {
+  /* while (!done) {
       cout << "Enter guest information or Enter to exit:" << endl;
       if (read(gst)) {
          addGuest(gl, gst);
@@ -33,5 +33,5 @@ int main() {
    cout << "**********************************************" << endl;
    cout << "Guestlist and their contacts: " << endl;
    print(gl);
-   delete[] gl.m_gst;
+   delete[] gl.m_gst;*/
 }

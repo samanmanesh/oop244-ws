@@ -1,4 +1,5 @@
-
+#ifndef SDDS_GUESTS_H
+#define SDDS_GUESTS_H
 
 namespace sdds {
 
@@ -19,5 +20,8 @@ namespace sdds {
 
    void read(char* str, int len);
 
+   void read(PhoneNumber& thePhoneNumber);
 
 }
+
+#endif // !

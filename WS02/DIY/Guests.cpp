@@ -1,4 +1,6 @@
 #include <iostream>
+#include "Guests.h"
+using namespace sdds;
 using namespace std;
 
 namespace sdds {
@@ -6,4 +8,13 @@ namespace sdds {
       if (cin.peek() == '\n') cin.ignore(); // checks the incomming character, if it is newline, it will remove it
       cin.getline(str, len);
    }
+
+   void read(PhoneNumber& thePhoneNumber) {
+
+       cout << "Enter Phone Number [area] [number]: ";
+       cin >> thePhoneNumber.m_areacode;
+
+       cout << thePhoneNumber.m_areacode << endl;
+       //cout << thePhoneNumber.m_number << endl;
+   };
 }
