@@ -22,6 +22,9 @@ namespace sdds {
 
    void read(PhoneNumber& thePhoneNumber);
 
+   bool read(Guest& theGuest);
+
+
 }
 
 #endif // !
