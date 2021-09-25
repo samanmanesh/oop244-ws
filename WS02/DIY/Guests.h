@@ -24,6 +24,11 @@ namespace sdds {
 
    bool read(Guest& theGuest);
 
+   void print(const PhoneNumber& thePhoneNumber);
+
+   void print(const Guest& theGuest);
+
+   void print(const GuestList& theGuestList);
 
 }
 

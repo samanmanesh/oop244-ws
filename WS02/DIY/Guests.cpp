@@ -6,12 +6,10 @@ using namespace std;
 
 
 namespace sdds {
-	
+
 	void read(char* str, int len) {
 		if (cin.peek() == '\n') cin.ignore(); // checks the incomming character, if it is newline, it will remove it
 		cin.getline(str, len);
-
-		//cout << str << "check " << endl;
 	}
 
 	void read(PhoneNumber& thePhoneNumber) {
@@ -24,8 +22,6 @@ namespace sdds {
 		bool result;
 		cout << "Guest name: ";
 		read(theGuest.m_name, 20);
-
-		cout << theGuest.m_name << "check 2 " << endl;		
 		//bool foo = strcmp(theGuest.m_name, "");
 
 		if (theGuest.m_name[0] != '\0') {
@@ -38,6 +34,29 @@ namespace sdds {
 		}
 		return result;
 	}
+
+	void print(const PhoneNumber& thePhoneNumber) {
+		cout << "(" << thePhoneNumber.m_areacode << ") " << thePhoneNumber.m_number << endl;
+	}
+
+	void print(const Guest& theGuest) {
+
+		cout << theGuest.m_name << ", ";
+		print(theGuest.m_phno);
+
+	}
+
+	void print(const GuestList& theGuestList) {
+		int len = theGuestList.m_noOfGuests;
+			for (int i = 0; i < len; i++)
+			{
+				cout << i + 1 << "- ";
+				print(theGuestList.m_gst[i]);
+			}
+	}
+
+
+
 
 
 }

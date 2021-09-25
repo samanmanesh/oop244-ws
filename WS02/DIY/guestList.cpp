@@ -22,18 +22,16 @@ int main() {
    while (!done) {
       cout << "Enter guest information or Enter to exit:" << endl;
       if (read(gst)) {
-          cout << " wend for addGuest" << endl;
-         //addGuest(gl, gst);
+         addGuest(gl, gst);
       }
       else {
-          cout << " about to exit " << endl;
          done = true;
       }
    }
-  /* cout << endl << endl << resturantName << ", Phone Number: ";
+   cout << endl << endl << resturantName << ", Phone Number: ";
    print(phno);
    cout << "**********************************************" << endl;
    cout << "Guestlist and their contacts: " << endl;
    print(gl);
-   delete[] gl.m_gst;*/
+   delete[] gl.m_gst;
 }
