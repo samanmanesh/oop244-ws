@@ -17,7 +17,26 @@
 
 namespace sdds {
 
+	class Book
+	{
+	private:
+		const double PENALTY = 1.5; // Penalty in dollars for each day a book's return is overdue
+		const int MAXLOAN = 15; // Maximum number of days to loan a book witout penalty.
 
+		char m_title[50 + 1];
+		int m_SKU;
+		int m_daysOnLoan;
+
+	public:
+		void set(const char titleOfBook, int SKU, int daysOnLoan);
+
+		//Book();;
+		bool isEmpty();
+	
+
+	};
+
+	
 
 
 

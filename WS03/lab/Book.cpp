@@ -21,10 +21,23 @@
 using namespace std;
 using namespace sdds;
 
-
-
 namespace sdds {
 
+	void Book::set(const char titleOfBook, int SKU, int daysOnLoan) {
 
+
+	}
+
+	bool Book::isEmpty() {};
+
+
+
+	/*Book::Book()
+	{
+	}
+
+	Book::~Book()
+	{
+	}*/
 
 }
