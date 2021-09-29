@@ -31,13 +31,13 @@ namespace sdds {
 		double penalty()const;
 
 	public:
-		void set(const char titleOfBook, int SKU, int daysOnLoan);
+		void set(const char titleOfBook[], int SKU, int daysOnLoan);
 		
 		bool isEmpty ()const;
 		
 		bool hasPenalty()const;
 
-		bool subTitle(const char subString);
+		bool subTitle(const char subString[]);
 
 		void display()const;
 	};

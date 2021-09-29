@@ -23,19 +23,77 @@ using namespace sdds;
 
 namespace sdds {
 
-	void Book::set(const char titleOfBook, int SKU, int daysOnLoan) {
-		//if( titleOfBook != '\0' && titleOfBook != 0 && )
+	void Book::set(const char titleOfBook[], int SKU, int daysOnLoan) {
+		if (titleOfBook[0] != '\0' && SKU > 0 && daysOnLoan > 0) {
+
+			strcpy(m_title, titleOfBook);
+			m_SKU = SKU;
+			m_daysOnLoan = daysOnLoan;
+		}
+		else
+		{
+			setEmpty();
+		}
 	}
 
-	bool Book::isEmpty() const{};
-	
-	bool Book::hasPenalty() const{};
+	bool Book::isEmpty() const {
+		return (m_title[0] == '\0' && m_SKU == 0 && m_daysOnLoan == 0);
+	};
 
-	bool Book::subTitle(const char subString) {};
+	bool Book::hasPenalty() const {
+		return (m_daysOnLoan > MAXLOAN);
+	};
 
-	void Book::display() const{};
+	bool Book::subTitle(const char subString[]) {
+		bool result;
+		if (strstr(m_title, subString)) {
+			result = true;
+
+		}
+		else {
+			result = false;
+		}
+
+	};
+
+	void Book::display() const {
+		if (!isEmpty) {
+
+			cout.width(49);
+			cout.setf(ios::left);
+			cout << m_title;
+			cout.width(8);
+			cout << m_SKU;
+			cout.width(10);
+			cout << m_daysOnLoan;
+			cout.unsetf(ios::left);
+
+			if (hasPenalty()) {
+				cout.width(7);
+				cout.precision(2);
+				cout << penalty() << endl;
+			}
+		}
+		else {
+			cout << "Invalid library book" << endl;
+		}
+
+	};
+
+	void Book::setEmpty() {
+		
+		m_title[0] = '\0';
+		m_SKU = 0;
+		m_daysOnLoan = 0;
 	
-	void Book::setEmpty();
-	double penalty()const;
+	};
+
+	double Book::penalty() const {
+		double overDueDays;
+		double penalty;
+		overDueDays = m_daysOnLoan - MAXLOAN;
+		penalty = overDueDays * penalty;
+		return penalty;
+	};
 
 }
