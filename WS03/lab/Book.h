@@ -27,13 +27,19 @@ namespace sdds {
 		int m_SKU;
 		int m_daysOnLoan;
 
+		void setEmpty();
+		double penalty()const;
+
 	public:
 		void set(const char titleOfBook, int SKU, int daysOnLoan);
+		
+		bool isEmpty ()const;
+		
+		bool hasPenalty()const;
 
-		//Book();;
-		bool isEmpty();
-	
+		bool subTitle(const char subString);
 
+		void display()const;
 	};
 
 	

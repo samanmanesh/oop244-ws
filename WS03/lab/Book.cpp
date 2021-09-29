@@ -24,20 +24,18 @@ using namespace sdds;
 namespace sdds {
 
 	void Book::set(const char titleOfBook, int SKU, int daysOnLoan) {
-
-
+		//if( titleOfBook != '\0' && titleOfBook != 0 && )
 	}
 
-	bool Book::isEmpty() {};
+	bool Book::isEmpty() const{};
+	
+	bool Book::hasPenalty() const{};
 
+	bool Book::subTitle(const char subString) {};
 
-
-	/*Book::Book()
-	{
-	}
-
-	Book::~Book()
-	{
-	}*/
+	void Book::display() const{};
+	
+	void Book::setEmpty();
+	double penalty()const;
 
 }
