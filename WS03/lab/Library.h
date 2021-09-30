@@ -14,13 +14,23 @@
 
 #ifndef SDDS_LIBRARY_H
 #define SDDS_LIBRARY_H
-
+#include"Book.h"
 namespace sdds {
 
+	class Library {
+
+		char m_name[30 + 1];
+		Book* m_books;
+		int m_sizeOfBooksArray;
+		int m_addedBooks;
+
+		void setEmpty();
+		bool isEmpty()const;
+		void header(const char* title)const;
 
 
 
-
+	};
 }
 
 #endif

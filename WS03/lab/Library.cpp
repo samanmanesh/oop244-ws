@@ -23,6 +23,31 @@ using namespace sdds;
 
 namespace sdds {
 
+	void Library::setEmpty() {
+		m_name[0] = '\0';
+		m_books = nullptr;
+		m_sizeOfBooksArray = 0;
+		m_addedBooks = 0;
+	}
 
+	bool Library::isEmpty()const {
+
+		return(m_name[0] != 0 && m_books != nullptr && m_sizeOfBooksArray != 0 && m_addedBooks != 0);
+	};
+
+	void Library::header(const char* title)const {
+		cout.fill('-');
+		cout.width(78);
+		cout << endl;
+		cout << "***** " << m_name << " *****" << endl;
+		cout << title << endl;
+		cout.fill('-');
+		cout.width(78);
+		cout << endl;
+		cout << "Row Book title                                       SKU     loan days penalty"
+			<< endl;
+		cout << "--- ------------------------------------------------ ------- --------- -------"
+			<< endl;
+	};
 
 }

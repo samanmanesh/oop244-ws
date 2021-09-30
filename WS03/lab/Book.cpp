@@ -81,11 +81,11 @@ namespace sdds {
 	};
 
 	void Book::setEmpty() {
-		
+
 		m_title[0] = '\0';
 		m_SKU = 0;
 		m_daysOnLoan = 0;
-	
+
 	};
 
 	double Book::penalty() const {
