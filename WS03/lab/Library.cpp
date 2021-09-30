@@ -31,8 +31,11 @@ namespace sdds {
 	}
 
 	bool Library::isEmpty()const {
-
-		return(m_name[0] != 0 && m_books != nullptr && m_sizeOfBooksArray != 0 && m_addedBooks != 0);
+		bool result = true;
+		if (m_name[0] != 0 && m_books != nullptr && m_sizeOfBooksArray != 0 && m_addedBooks != 0) {
+			result = false;
+		}
+		return result;
 	};
 
 	void Library::header(const char* title)const {
@@ -60,7 +63,7 @@ namespace sdds {
 	};
 
 	void Library::initialize(const char* name, int noOfBooks) {
-		
+
 		if (name != nullptr && name[0] != 0 && noOfBooks > 0) {
 
 			strcpy(m_name, name);
@@ -71,8 +74,119 @@ namespace sdds {
 		else {
 			setEmpty();
 		}
-	
+
+	};
+
+	bool Library::addBook(const char* book_title, int sku, int loanDays) {
+		bool result;
+		if (m_addedBooks < m_sizeOfBooksArray) {
+
+			m_books[m_addedBooks].set(book_title, sku, loanDays);
+			if (!m_books[m_addedBooks].isEmpty())
+			{
+				result = true;
+				m_addedBooks++;
+			}
+			else
+			{
+				result = false;
+			}
+
+		}
+		else
+		{
+			result = false;
+		}
+		return result;
+	};
+
+	void Library::clear() {
+
+		delete[] m_books;
+		m_books = nullptr;
+	};
+
+	void Library::display(const char* substr) {
+
+		if (isEmpty() == false)
+		{
+			int rowNumber = 1;
+			bool searchFlag = false;
+			cout << ">>> Searching for: \"";
+			cout << substr;
+			cout << "\" <<<" << endl;
+			header("Substring search");
+			for (int i = 0; i < m_addedBooks; i++)
+			{
+				if (m_books[i].subTitle(substr)) {
+					cout.width(4);
+					cout.setf(ios::left);
+					cout << rowNumber;
+					cout.unsetf(ios::left);
+					rowNumber++;
+					m_books[i].display();
+					searchFlag = true;
+				}
+			}
+			if (!searchFlag)
+			{
+				cout << "No book title contains \"";
+				cout << substr;
+				cout << "\"" << endl;
+			}
+			footer();
+		}
+		else {
+			cout << "Invalid Library" << endl;
+		}
+
+	};
+	void Library::display(bool overdueOnly = false)const {
+
+		if (isEmpty() == false) {
+			int rowNumber = 1;
+			if (overdueOnly == true)
+			{
+				header("Overdue Books");
+				for (int i = 0; i < m_addedBooks; i++)
+				{
+					if (m_books[i].hasPenalty()) {
+						cout.width(4);
+						cout.setf(ios::left);
+						cout << rowNumber;
+						cout.unsetf(ios::left);
+						rowNumber++;
+						m_books[i].display();
+						footer();
+					}
+				}
+			}
+			else if (overdueOnly == false)
+			{
+				header("Books on Loan");
+				for (int i = 0; i < m_addedBooks; i++)
+				{
+					cout.width(4);
+					cout.setf(ios::left);
+					cout << rowNumber;
+					cout.unsetf(ios::left);
+					rowNumber++;
+					m_books[i].display();
+					footer();
+				}
+			}
+
+
+
+
+		}
+		else {
+			cout << "Invalid Library" << endl;
+		}
 	};
 
 
-}
+};
+
+
+

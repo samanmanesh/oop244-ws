@@ -32,9 +32,17 @@ namespace sdds {
 	public:
 		void initialize(const char* name, int noOfBooks);
 
+		bool addBook(const char* book_title, int sku, int loanDays);
 
+		void clear();
+
+		void display(const char* substr);
+		
+		void display(bool overdueOnly = false)const;
 
 	};
+
+
 }
 
 #endif
