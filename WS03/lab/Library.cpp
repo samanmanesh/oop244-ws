@@ -42,7 +42,7 @@ namespace sdds {
 		cout<<"-" << endl;
 		cout.fill(' ');
 
-		cout << "***** " << m_name << " *****" << endl;
+		cout << "*****  " << m_name << "  *****" << endl;
 		
 		cout << title << endl;
 		cout.fill('-');
