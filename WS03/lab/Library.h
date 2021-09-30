@@ -27,6 +27,10 @@ namespace sdds {
 		void setEmpty();
 		bool isEmpty()const;
 		void header(const char* title)const;
+		void footer()const;
+		
+	public:
+		void initialize(const char* name, int noOfBooks);
 
 
 

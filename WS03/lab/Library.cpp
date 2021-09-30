@@ -40,14 +40,39 @@ namespace sdds {
 		cout.width(78);
 		cout << endl;
 		cout << "***** " << m_name << " *****" << endl;
+		cout.fill(' ');
 		cout << title << endl;
 		cout.fill('-');
 		cout.width(78);
 		cout << endl;
+		cout.fill(' ');
 		cout << "Row Book title                                       SKU     loan days penalty"
 			<< endl;
 		cout << "--- ------------------------------------------------ ------- --------- -------"
 			<< endl;
 	};
+
+	void Library::footer()const {
+		cout.fill('-');
+		cout.width(78);
+		cout << endl;
+		cout.fill(' ');
+	};
+
+	void Library::initialize(const char* name, int noOfBooks) {
+		
+		if (name != nullptr && name[0] != 0 && noOfBooks > 0) {
+
+			strcpy(m_name, name);
+			m_sizeOfBooksArray = noOfBooks;
+			m_addedBooks = 0;
+			m_books = new Book[noOfBooks];
+		}
+		else {
+			setEmpty();
+		}
+	
+	};
+
 
 }
