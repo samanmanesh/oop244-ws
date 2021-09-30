@@ -16,7 +16,6 @@ int noOfRecs(FILE* fptr);
 void readBooks(Library& L, FILE* fptr);
 int main() {
    FILE* fptr = fopen( "books.csv", "r");
-   //cout << fptr;
    Library b[4];
    Library L;
    int i;
@@ -38,11 +37,9 @@ int main() {
    fclose(fptr);
 }
 int noOfRecs(FILE* fptr) {
-   // cout << "read here1" << endl;
     int no = 0;
    int newline = 0;
    while ((newline = fgetc(fptr)) != EOF) {
-     //  cout << "read here2" << endl;
       no += (newline == '\n');
    }
    rewind(fptr);
@@ -53,7 +50,6 @@ void readBooks(Library& L, FILE* fptr) {
    char book_title[51];
    int sku;
    int days;
-   //cout << "read here" << endl;
    for (int i = 0; i < noOfRecs; i++) {
       fscanf(fptr, "%[^,],%d,%d\n", book_title, &sku, &days);
       L.addBook(book_title, sku, days);

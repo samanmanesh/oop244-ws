@@ -5,7 +5,7 @@
 //  Student Name  : Mohammadhossein Sobhanmanesh
 //  Student ID    : 116523200
 //  Student Email : msobhanmanesh@myseneca.ca
-//  Date          : 2020-09-29
+//  Date          : 2020-09-30
 //  Course Section: OOP244-NAA
 // ===================================================================================
 // I have done all the coding by myself and only copied the code that my professor
@@ -28,7 +28,7 @@ namespace sdds {
 		bool isEmpty()const;
 		void header(const char* title)const;
 		void footer()const;
-		
+
 	public:
 		void initialize(const char* name, int noOfBooks);
 
@@ -37,11 +37,10 @@ namespace sdds {
 		void clear();
 
 		void display(const char* substr);
-		
+
 		void display(bool overdueOnly = false)const;
 
 	};
-
 
 }
 

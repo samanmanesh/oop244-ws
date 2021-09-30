@@ -6,7 +6,7 @@
 //  Student Name  : Mohammadhossein Sobhanmanesh
 //  Student ID    : 116523200
 //  Student Email : msobhanmanesh@myseneca.ca
-//  Date          : 2020-09-29
+//  Date          : 2020-09-30
 //  Course Section: OOP244-NAA
 // ===================================================================================
 // I have done all the coding by myself and only copied the code that my professor
@@ -146,36 +146,7 @@ namespace sdds {
 
 		if (!isEmpty()) {
 			int rowNumber = 1;
-			/*if (overdueOnly == true)
-			{
-				header("Overdue Books");
-				for (int i = 0; i < m_addedBooks; i++)
-				{
-					if (m_books[i].hasPenalty()) {
-						cout.width(4);
-						cout.setf(ios::left);
-						cout << rowNumber;
-						cout.unsetf(ios::left);
-						rowNumber++;
-						m_books[i].display();
-						footer();
-					}
-				}
-			}
-			else if (overdueOnly == false)
-			{
-				header("Books on Loan");
-				for (int i = 0; i < m_addedBooks; i++)
-				{
-					cout.width(4);
-					cout.setf(ios::left);
-					cout << rowNumber;
-					cout.unsetf(ios::left);
-					rowNumber++;
-					m_books[i].display();
-					footer();
-				}
-			}*/
+			
 
 			if (overdueOnly == true)
 			{
