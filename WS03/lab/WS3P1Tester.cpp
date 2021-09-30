@@ -53,7 +53,7 @@ void readBooks(Library& L, FILE* fptr) {
    char book_title[51];
    int sku;
    int days;
-   cout << "read here" << endl;
+   //cout << "read here" << endl;
    for (int i = 0; i < noOfRecs; i++) {
       fscanf(fptr, "%[^,],%d,%d\n", book_title, &sku, &days);
       L.addBook(book_title, sku, days);
