@@ -53,11 +53,11 @@ namespace sdds {
 		else {
 			result = false;
 		}
-
+		return result;
 	};
 
 	void Book::display() const {
-		if (!isEmpty) {
+		if (!isEmpty()) {
 
 			cout.width(49);
 			cout.setf(ios::left);
@@ -92,7 +92,7 @@ namespace sdds {
 		double overDueDays;
 		double penalty;
 		overDueDays = m_daysOnLoan - MAXLOAN;
-		penalty = overDueDays * penalty;
+		penalty = overDueDays * PENALTY;
 		return penalty;
 	};
 

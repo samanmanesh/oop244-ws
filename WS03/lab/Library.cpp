@@ -141,7 +141,7 @@ namespace sdds {
 		}
 
 	};
-	void Library::display(bool overdueOnly = false)const {
+	void Library::display(bool overdueOnly)const {
 
 		if (isEmpty() == false) {
 			int rowNumber = 1;
@@ -176,15 +176,11 @@ namespace sdds {
 				}
 			}
 
-
-
-
 		}
 		else {
 			cout << "Invalid Library" << endl;
 		}
 	};
-
 
 };
 
