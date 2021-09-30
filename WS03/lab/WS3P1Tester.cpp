@@ -38,11 +38,11 @@ int main() {
    fclose(fptr);
 }
 int noOfRecs(FILE* fptr) {
-    cout << "read here1" << endl;
+   // cout << "read here1" << endl;
     int no = 0;
    int newline = 0;
    while ((newline = fgetc(fptr)) != EOF) {
-       cout << "read here2" << endl;
+     //  cout << "read here2" << endl;
       no += (newline == '\n');
    }
    rewind(fptr);
