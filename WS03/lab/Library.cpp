@@ -31,34 +31,35 @@ namespace sdds {
 	}
 
 	bool Library::isEmpty()const {
-		bool result = true;
-		if (m_name[0] != 0 && m_books != nullptr && m_sizeOfBooksArray != 0 && m_addedBooks != 0) {
-			result = false;
-		}
-		return result;
+		
+		return(m_name[0] == 0 && m_books == nullptr && m_sizeOfBooksArray == 0 && m_addedBooks == 0);
+		
 	};
 
 	void Library::header(const char* title)const {
 		cout.fill('-');
 		cout.width(78);
-		cout << endl;
-		cout << "***** " << m_name << " *****" << endl;
+		cout<<"-" << endl;
 		cout.fill(' ');
+
+		cout << "***** " << m_name << " *****" << endl;
+		
 		cout << title << endl;
 		cout.fill('-');
 		cout.width(78);
-		cout << endl;
+		cout <<"-" << endl;
 		cout.fill(' ');
 		cout << "Row Book title                                       SKU     loan days penalty"
 			<< endl;
 		cout << "--- ------------------------------------------------ ------- --------- -------"
 			<< endl;
+		cout.fill(' ');
 	};
 
 	void Library::footer()const {
 		cout.fill('-');
 		cout.width(78);
-		cout << endl;
+		cout << "-" << endl;
 		cout.fill(' ');
 	};
 
@@ -108,7 +109,7 @@ namespace sdds {
 
 	void Library::display(const char* substr) {
 
-		if (isEmpty() == false)
+		if (!isEmpty())
 		{
 			int rowNumber = 1;
 			bool searchFlag = false;
@@ -143,9 +144,9 @@ namespace sdds {
 	};
 	void Library::display(bool overdueOnly)const {
 
-		if (isEmpty() == false) {
+		if (!isEmpty()) {
 			int rowNumber = 1;
-			if (overdueOnly == true)
+			/*if (overdueOnly == true)
 			{
 				header("Overdue Books");
 				for (int i = 0; i < m_addedBooks; i++)
@@ -174,7 +175,42 @@ namespace sdds {
 					m_books[i].display();
 					footer();
 				}
+			}*/
+
+			if (overdueOnly == true)
+			{
+				header("Overdue Books");
+			}else if(overdueOnly == false) {
+
+				header("Books on Loan");
 			}
+
+			for (int i = 0; i < m_addedBooks; i++)
+			{
+				if (overdueOnly == true)
+				{
+					if (m_books[i].hasPenalty()) {
+
+						cout.width(4);
+						cout.setf(ios::left);
+						cout << rowNumber;
+						rowNumber++;
+						m_books[i].display();
+					}
+				}
+				else if(overdueOnly == false)
+				{	
+					cout.width(4);
+					cout.setf(ios::left);
+					cout << rowNumber;
+					cout.unsetf(ios::left);
+					rowNumber++;
+					m_books[i].display();
+
+				}
+			}
+			footer();
+
 
 		}
 		else {

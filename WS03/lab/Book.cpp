@@ -57,22 +57,32 @@ namespace sdds {
 	};
 
 	void Book::display() const {
+		
 		if (!isEmpty()) {
 
 			cout.width(49);
 			cout.setf(ios::left);
 			cout << m_title;
+			cout.unsetf(ios::left);
+
 			cout.width(8);
+			cout.setf(ios::left);
 			cout << m_SKU;
+			cout.unsetf(ios::left);
+
 			cout.width(10);
+			cout.setf(ios::left);
 			cout << m_daysOnLoan;
 			cout.unsetf(ios::left);
 
 			if (hasPenalty()) {
 				cout.width(7);
+				cout.setf(ios::fixed);
 				cout.precision(2);
-				cout << penalty() << endl;
+				cout << penalty();
+				cout.unsetf(ios::fixed);
 			}
+			cout << endl;
 		}
 		else {
 			cout << "Invalid library book" << endl;
