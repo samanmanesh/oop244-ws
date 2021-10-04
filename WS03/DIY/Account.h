@@ -44,7 +44,6 @@ namespace sdds {
 		double interest() const;
 
 	};
-	//check
 }
 
 #endif
