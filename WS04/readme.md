@@ -134,13 +134,13 @@ Returns  **m_population**
 ```C++
 void display()const;
 ```
-1) If City object is valid
-     a) prints "|" 
-     b) prints **m_cityName** in 30 spaces ,left justified.
-     c) prints " | "
-     d) prints **m_population** in 10 spaces, right justified.
-     e) prints " | "
-     f) new line
+1) If City object is valid<br/>
+     a) prints "|" <br/>
+     b) prints **m_cityName** in 30 spaces ,left justified.<br/>
+     c) prints " | "<br/>
+     d) prints **m_population** in 10 spaces, right justified.<br/>
+     e) prints " | "<br/>
+     f) new line<br/>
 2) otherwise prints,  cout << "Invalid city" << endl;
 
 
@@ -219,12 +219,16 @@ Deallocate the memory allocated by **m_name** and **m_city**.
 void display()const;
 ```
 If the **Country** object is not empty this function will print the output in the following format: (For more details see the sample output)
-- prints "Country Name: " then goes to new line
-- prints "No of city: " then goes to new line
-- prints "City name" with width 32, left justified, then print "Population".
+- prints "Country Name: " 
+- prints the name and then goes to new line
+- prints "No of city: "
+- printf the number of cities and  then goes to new line
+- prints "City name" with width 32, left justified.
+- prints "Population"
 - goes to new line
 - will loop through the **m_city** elements, printing each of them.
-- otherwise prints, cout<< "Invalid country object" << endl;
+ 
+otherwise prints, cout<< "Invalid country object" << endl;
 
 
 ## Tester program:
@@ -357,7 +361,7 @@ Then, run the following command from your account
 
 and follow the instructions.
 
-> **⚠️Important:** Please note that a successful submission does not guarantee full credit for this workshop. If the professor is not satisfied with your implementation, your professor may ask you to resubmit. Re-submissions will attract a penalty.
+> **??Important:** Please note that a successful submission does not guarantee full credit for this workshop. If the professor is not satisfied with your implementation, your professor may ask you to resubmit. Re-submissions will attract a penalty.
 
 # DIY (50%) Book Chapters
 >Except from the mandatory sections of DIY, all the other parts can be changed by students if they find it necessary as long as the program produces an output that exactly matches the required output. Please note that you can (and probably should) add more member functions to make the DIY part work.
