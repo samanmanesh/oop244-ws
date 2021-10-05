@@ -137,9 +137,9 @@ void display()const;
 1) If City object is valid
      a) prints "|" 
      b) prints **m_cityName** in 30 spaces ,left justified.
-     c) prints "|"
+     c) prints " | "
      d) prints **m_population** in 10 spaces, right justified.
-     e) prints "|"
+     e) prints " | "
      f) new line
 2) otherwise prints,  cout << "Invalid city" << endl;
 
@@ -221,7 +221,7 @@ void display()const;
 If the **Country** object is not empty this function will print the output in the following format: (For more details see the sample output)
 - prints "Country Name: " then goes to new line
 - prints "No of city: " then goes to new line
-- prints "City name" << "Population" with width 25, left justified.
+- prints "City name" with width 32, left justified, then print "Population".
 - goes to new line
 - will loop through the **m_city** elements, printing each of them.
 - otherwise prints, cout<< "Invalid country object" << endl;
