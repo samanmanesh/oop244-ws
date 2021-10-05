@@ -31,6 +31,19 @@ namespace sdds {
 
 		void setEmpty();
 
+		void setCityName(const char* name);
+
+		void setPopulation(int population);
+
+		void addPopulation(int population);
+
+		bool isEmpty()const;
+
+		int getPeople()const;
+
+		void display()const;
+
+
 	};
 
 }
