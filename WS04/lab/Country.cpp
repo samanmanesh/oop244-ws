@@ -17,17 +17,27 @@ namespace sdds {
 
 	Country::Country(const char* name, int noOfCity, const City* cities) {
 		setEmpty();
-		if (name != nullptr && name[0] != 0 && (noOfCity < MAX_CITY && noOfCity >= 0) && cities != nullptr)
+		if (name != nullptr && name[0] != 0 && (noOfCity < MAX_CITY && noOfCity > 0) && cities != nullptr)
 		{
 			setName(name);
 			m_noOfCity = noOfCity;
 			m_city = new City[m_noOfCity];
 
-			//m_city = cities;
+			  
+
 			for (int i = 0; i < m_noOfCity; i++)
 			{
-				m_city[i] = cities[i];
+				
+				addCity(cities[i]);
+				//cout <<"check cities" <<cities;
+				//m_city[i] = cities[i];
 			}
+
+			//m_city = cities;
+			/*for (int i = 0; i < m_noOfCity; i++)
+			{
+				m_city[i] = cities[i];
+			}*/
 
 			// need to be debuged here and also add city
 		}
@@ -69,10 +79,13 @@ namespace sdds {
 
 			for (int i = 0; i < m_noOfCity; i++)
 			{
-				strcpy(newCity[i].m_cityName, m_city[i].m_cityName);
+				
+				newCity[i].setCityName();
+				//newCity[i] = m_city[i];
+				//strcpy(newCity[i].m_cityName, m_city[i].m_cityName);
 			}
 		}
-
+		return *this;
 	};
 
 	Country& Country::migrate(int people) {
