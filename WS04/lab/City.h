@@ -19,12 +19,12 @@ namespace sdds {
 
 	class City
 	{
-		const int POPULATION = 20000; //max population of a city
+		
 		char m_cityName[31];// holds the city name up to 30 chars
 		int m_population;//number of people. A city can have zero population.
 
 	public:
-		
+		const int POPULATION = 20000; //max population of a city
 		City();
 		
 		City(const char* name, int population);
