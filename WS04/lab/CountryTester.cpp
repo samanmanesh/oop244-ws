@@ -15,9 +15,9 @@ using namespace sdds;
 
 int main() {
 	int i;
-	
+
 	City c1[]{
-		City(), 
+		City(),
 		City("",1000),
 		City("Bad1", -1) };
 
@@ -26,7 +26,7 @@ int main() {
 		City("Tulip",8000),
 		City("Daisy",500) };
 
-	City c3{"Rose",0};
+	City c3{ "Rose",0 };
 
 	Country cu[]{
 		Country(),
@@ -34,16 +34,16 @@ int main() {
 		Country("Bad1", 0,c2),
 		Country("Flower",3,c2)
 	};
-	
+
 	cout << "Displaying invalid Country objects" << endl;
 	for (i = 0; i < 3; i++) {
-		cout << i + 1<<". ";
+		cout << i + 1 << ". ";
 		cu[i].display();
 	}
 	cout << "------------------------------------------------------" << endl;
 
 	cout << "Displaying valid Country object with valid cities" << endl;
-		cu[3].display();	
+	cu[3].display();
 	cout << "-------------------------------------------------------" << endl;
 
 	cout << "Displaying invalid City objects" << endl;
@@ -53,7 +53,7 @@ int main() {
 	}
 	cout << "------------------------------------------------------" << endl;
 
-	cout << "Migrating 10K people to the Flower country cities"<<endl;
+	cout << "Migrating 10K people to the Flower country cities" << endl;
 	cu[3].migrate(10000);
 	cu[3].display();
 	cout << "-------------------------------------------------------" << endl;
@@ -63,10 +63,10 @@ int main() {
 	cu[3].migrate(8000);
 	cu[3].display();
 	return 0;
-	}
+}
 
 /*
-	
+
 Displaying invalid Country objects
 1. Invalid country object
 2. Invalid country object
@@ -101,5 +101,4 @@ City name                Population
 |Tulip                |      20000 |
 |Daisy                |      18500 |
 |Rose                 |       8000 |
-
 */

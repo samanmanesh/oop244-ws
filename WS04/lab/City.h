@@ -5,7 +5,7 @@
 //  Student Name  : Mohammadhossein Sobhanmanesh
 //  Student ID    : 116523200
 //  Student Email : msobhanmanesh@myseneca.ca
-//  Date          : 2020-10-
+//  Date          : 2020-10-7
 //  Course Section: OOP244-NAA
 // ===================================================================================
 // I have done all the coding by myself and only copied the code that my professor
@@ -16,15 +16,15 @@
 #define SDDS_CITY_H
 
 namespace sdds {
-
+	const int POPULATION = 20000; //max population of a city
+	
 	class City
-	{
-		
+	{	
 		char m_cityName[31];// holds the city name up to 30 chars
 		int m_population;//number of people. A city can have zero population.
 
 	public:
-		const int POPULATION = 20000; //max population of a city
+		
 		City();
 		
 		City(const char* name, int population);

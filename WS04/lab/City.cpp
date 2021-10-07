@@ -1,4 +1,16 @@
-
+// ===================================================================================
+//  Workshop: #4
+//  Part: 1 (Lab)
+// ===================================================================================
+//  Student Name  : Mohammadhossein Sobhanmanesh
+//  Student ID    : 116523200
+//  Student Email : msobhanmanesh@myseneca.ca
+//  Date          : 2020-10-7
+//  Course Section: OOP244-NAA
+// ===================================================================================
+// I have done all the coding by myself and only copied the code that my professor
+// provided to complete my workshops and assignments.
+// ===================================================================================
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
@@ -10,16 +22,13 @@ using namespace sdds;
 namespace sdds {
 	
 	City::City() {
-
-		m_cityName[0] = '\0';
-		m_population = -1;
+		setEmpty();
 	};
 	
 	City::City(const char* name, int population) {
 		
 		if (name != nullptr && name[0] != 0 && population >= 0) {
-
-			strcpy(m_cityName, name);
+			setCityName(name);
 			m_population = population;
 		}
 		else
@@ -79,6 +88,8 @@ namespace sdds {
 	int City::getPeople()const {
 		return m_population;
 	};
+
+	
 
 	void City::display()const {
 		

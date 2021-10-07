@@ -1,3 +1,16 @@
+// ===================================================================================
+//  Workshop: #4
+//  Part: 1 (Lab)
+// ===================================================================================
+//  Student Name  : Mohammadhossein Sobhanmanesh
+//  Student ID    : 116523200
+//  Student Email : msobhanmanesh@myseneca.ca
+//  Date          : 2020-10-7
+//  Course Section: OOP244-NAA
+// ===================================================================================
+// I have done all the coding by myself and only copied the code that my professor
+// provided to complete my workshops and assignments.
+// ===================================================================================
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
@@ -10,36 +23,22 @@ namespace sdds {
 
 	Country::Country() {
 		setEmpty();
-		/*m_name = nullptr;
-		m_city = nullptr;
-		m_noOfCity = 0;*/
 	};
 
 	Country::Country(const char* name, int noOfCity, const City* cities) {
+		
 		setEmpty();
-		if (name != nullptr && name[0] != 0 && (noOfCity < MAX_CITY && noOfCity > 0) && cities != nullptr)
+		
+		if (name != nullptr && name[0] != 0 && noOfCity < MAX_CITY && noOfCity > 0 && cities != nullptr)
 		{
 			setName(name);
 			m_noOfCity = noOfCity;
-			m_city = new City[m_noOfCity];
-
-			  
+			m_city = new City[m_noOfCity];	  
 
 			for (int i = 0; i < m_noOfCity; i++)
-			{
-				
-				addCity(cities[i]);
-				//cout <<"check cities" <<cities;
-				//m_city[i] = cities[i];
-			}
-
-			//m_city = cities;
-			/*for (int i = 0; i < m_noOfCity; i++)
-			{
+			{	
 				m_city[i] = cities[i];
-			}*/
-
-			// need to be debuged here and also add city
+			}
 		}
 	};
 
@@ -51,7 +50,7 @@ namespace sdds {
 
 	void Country::setName(const char* name) {
 		delete m_name;
-		//m_name = nullptr;
+		m_name = nullptr;
 		if (name != nullptr && name[0] != 0)
 		{
 			char* newName = nullptr;
@@ -79,11 +78,15 @@ namespace sdds {
 
 			for (int i = 0; i < m_noOfCity; i++)
 			{
-				
-				newCity[i].setCityName();
-				//newCity[i] = m_city[i];
-				//strcpy(newCity[i].m_cityName, m_city[i].m_cityName);
+				newCity[i] = m_city[i];		
 			}
+
+			delete[] m_city;
+			newCity[m_noOfCity] = c;
+			m_noOfCity++;
+			m_city = newCity;
+			newCity = nullptr;
+
 		}
 		return *this;
 	};
@@ -92,7 +95,7 @@ namespace sdds {
 		
 		for (int i = 0; i < m_noOfCity; i++)
 		{
-			if (m_city[i].getPeople() < m_city[i].POPULATION) {
+			if (m_city[i].getPeople() < POPULATION) {
 
 				m_city[i].addPopulation(people);
 			}
@@ -109,6 +112,7 @@ namespace sdds {
 		delete m_name;
 		delete[] m_city;
 	};
+
 
 	void Country::display()const {
 		
