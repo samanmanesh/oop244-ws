@@ -28,7 +28,7 @@ namespace sdds {
 
 	Chapter::Chapter(const char* chapterName, int pages) {
 		
-		if (chapterName != 0 && chapterName[0] != 0 && pages > 0)
+		if (chapterName != nullptr && chapterName[0] != 0 && pages > 0)
 		{
 			setChapterName(chapterName);
 			setPages(pages);

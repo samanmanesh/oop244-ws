@@ -106,8 +106,9 @@ namespace sdds {
 			}
 
 			delete[] m_chapter;
-			newChapter[m_noOfChapter ].setChapterName(chapter_name);
-			newChapter[m_noOfChapter ].setPages(noOfPages);
+
+			newChapter[m_noOfChapter].setChapterName(chapter_name);
+			newChapter[m_noOfChapter].setPages(noOfPages);
 			m_noOfChapter++;
 			m_chapter = newChapter;
 			newChapter = nullptr;
@@ -118,7 +119,7 @@ namespace sdds {
 
 
 	bool Book::isEmpty()const {
-		//jif it doesnt work it needs just m_bookName to be checked for Book state
+		
 		return (
 			m_bookName == nullptr ||
 			m_chapter == nullptr ||
