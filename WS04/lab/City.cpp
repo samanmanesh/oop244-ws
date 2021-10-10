@@ -100,14 +100,14 @@ namespace sdds {
 			cout.setf(ios::left);
 			cout << m_cityName;
 			cout.unsetf(ios::left);
-			cout << "|";
+			cout << " | ";
 			cout.width(10);
 			cout << m_population;
-			cout << "|" << endl;
+			cout << " | " << endl;
 
 		}else
 		{
-			cout << "Invalid city" << endl;
+			cout << "invalid city" << endl;
 		}
 	};
 
