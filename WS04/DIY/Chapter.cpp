@@ -87,7 +87,7 @@ namespace sdds {
 	};
 
 	bool Chapter::isEmpty()const {
-		return(m_chapterName[0] == 0 || m_chapterPages < 0);
+		return(m_chapterName[0] == 0 || m_chapterPages < 0 || m_chapterName == nullptr);
 	};
 
 	int Chapter::getPages()const {
@@ -103,9 +103,12 @@ namespace sdds {
 			cout.setf(ios::left);
 			cout << m_chapterName;
 			cout.unsetf(ios::left);
+
+			cout.width(4);
 			cout.fill(' ');
-			cout.width(3);
+			
 			cout << m_chapterPages;
+			
 			cout << endl;
 
 		}

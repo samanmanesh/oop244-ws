@@ -14,17 +14,31 @@ namespace sdds {
 	Book::Book(const char* bookName, int noOfChapter, const Chapter* chapters) {
 
 		setEmpty();
+		bool chaptersIsSafe = true;
 
 		if (bookName != nullptr && bookName[0] != 0 && noOfChapter > 0 && chapters != nullptr)
 		{
-			setBookName(bookName);
-			m_noOfChapter = noOfChapter;
-
-			m_chapter = new Chapter[m_noOfChapter];
-			for (int i = 0; i < m_noOfChapter; i++)
+			for (int i = 0; i < noOfChapter; i++)
 			{
-				m_chapter[i] = chapters[i];
+				if (chapters[i].isEmpty()) {
+					chaptersIsSafe = false;
+				}
 			}
+				
+			if (chaptersIsSafe == true)
+				{
+
+					setBookName(bookName);
+					m_noOfChapter = noOfChapter;
+
+					m_chapter = new Chapter[m_noOfChapter];
+
+					for (int i = 0; i < m_noOfChapter; i++)
+					{
+						m_chapter[i] = chapters[i];
+					}
+			}
+			
 		}
 	};
 
@@ -80,7 +94,7 @@ namespace sdds {
 
 	Book& Book::addChapter(const char* chapter_name, int noOfPages) {
 
-		if (chapter_name != nullptr && chapter_name[0] != 0 && noOfPages != 0) {
+		if (chapter_name != nullptr && chapter_name[0] != 0 && noOfPages > 0 ) {
 
 			Chapter* newChapter = nullptr;
 			newChapter = new Chapter[m_noOfChapter + 1];
@@ -88,12 +102,12 @@ namespace sdds {
 			for (int i = 0; i < m_noOfChapter; i++)
 			{
 				newChapter[i] = m_chapter[i];
-
+			
 			}
 
 			delete[] m_chapter;
-			newChapter[m_noOfChapter].setChapterName(chapter_name);
-			newChapter[m_noOfChapter].setPages(noOfPages);
+			newChapter[m_noOfChapter ].setChapterName(chapter_name);
+			newChapter[m_noOfChapter ].setPages(noOfPages);
 			m_noOfChapter++;
 			m_chapter = newChapter;
 			newChapter = nullptr;
@@ -143,7 +157,12 @@ namespace sdds {
 			cout << "Book Name: ";
 			cout << m_bookName << endl;
 			cout << "No of chapters: ";
+			
 			cout << m_noOfChapter << endl;
+			cout << "Chapter name";
+			cout.width(44);
+			cout << "Pages" << endl;
+
 
 			for (int i = 0; i < m_noOfChapter; i++)
 			{

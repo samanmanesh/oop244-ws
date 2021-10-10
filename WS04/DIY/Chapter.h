@@ -18,7 +18,7 @@
 namespace sdds {
 	
 	const int MAXPAGES = 200; //max pages of a book
-
+	const int MAXCHAPTERNAMESIZE = 51;
 	class Chapter
 	{
 		char m_chapterName[51];		// holds the chapter name up to 50 chars
