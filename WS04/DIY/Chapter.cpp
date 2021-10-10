@@ -32,6 +32,7 @@ namespace sdds {
 		{
 			setChapterName(chapterName);
 			setPages(pages);
+		
 		}
 		else {
 			setEmpty();
@@ -39,13 +40,10 @@ namespace sdds {
 	
 	}
 
-
-
-
 	void Chapter::setEmpty() {
 
 		m_chapterName[0] = '\0';
-		m_chapterPages = -1;
+		m_chapterPages = 0;
 
 	}
 
@@ -56,6 +54,7 @@ namespace sdds {
 		}
 		else {
 			m_chapterName[0] = '\0';
+
 		}
 				
 	}
@@ -68,7 +67,8 @@ namespace sdds {
 		}
 		else {
 
-			m_chapterPages = -1;
+			//m_chapterPages = 0;
+			setEmpty();
 		};
 		
 	}
@@ -90,9 +90,7 @@ namespace sdds {
 		return(m_chapterName[0] == 0 || m_chapterPages < 0 || m_chapterName == nullptr);
 	};
 
-	int Chapter::getPages()const {
-		return m_chapterPages;
-	};
+
 
 	void Chapter::display()const {
 
@@ -103,12 +101,9 @@ namespace sdds {
 			cout.setf(ios::left);
 			cout << m_chapterName;
 			cout.unsetf(ios::left);
-
 			cout.width(4);
 			cout.fill(' ');
-			
 			cout << m_chapterPages;
-			
 			cout << endl;
 
 		}
