@@ -117,7 +117,7 @@ namespace sdds {
 
 			cout << "Book Name: ";
 			cout << m_bookName << endl;
-			cout << "No of chapters: ";
+			cout << "No of Chapters: ";
 
 			cout << m_noOfChapter << endl;
 			cout << "Chapter name";
@@ -132,7 +132,7 @@ namespace sdds {
 		}
 		else
 		{
-			cout << "Invalid book object" << endl;
+			cout << "Invalid Book object" << endl;
 		}
 
 	};
