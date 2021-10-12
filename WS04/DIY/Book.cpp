@@ -75,7 +75,7 @@ namespace sdds {
 
 	Book& Book::addChapter(const char* chapter_name, int noOfPages) {
 
-		if (chapter_name != nullptr && chapter_name[0] != '\0' && noOfPages > 0) {
+		if (chapter_name != nullptr && chapter_name[0] != '\0' && noOfPages > 0 && noOfPages < MAXPAGES) {
 			
 			Chapter* newChapters = nullptr;
 			newChapters = new Chapter[m_noOfChapter + 1];
@@ -117,7 +117,7 @@ namespace sdds {
 
 			cout << "Book Name: ";
 			cout << m_bookName << endl;
-			cout << "No of chapters: ";
+			cout << "No of Chapters: ";
 
 			cout << m_noOfChapter << endl;
 			cout << "Chapter name";
@@ -132,7 +132,7 @@ namespace sdds {
 		}
 		else
 		{
-			cout << "Invalid book object" << endl;
+			cout << "Invalid Book object" << endl;
 		}
 
 	};
