@@ -17,7 +17,7 @@
 
 namespace sdds {
 	
-	const int MAXPAGES = 200; //max pages of a book
+	const int MAXPAGES = 201; //max pages of a book
 	const int MAXCHAPTERNAMESIZE = 51;
 	class Chapter
 	{
