@@ -87,7 +87,7 @@ namespace sdds {
 	};
 
 	bool Chapter::isEmpty()const {
-		return(m_chapterName[0] == 0 || m_chapterPages < 0 || m_chapterName == nullptr);
+		return(m_chapterName[0] == 0 || m_chapterPages == 0);
 	};
 
 
