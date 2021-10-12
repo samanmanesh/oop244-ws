@@ -16,10 +16,18 @@ namespace sdds {
 
    public: 
 		
-	   EggCarton(int size = 6, int noOfEggs = 0, bool jumboSize = false);
+	   EggCarton(int size , int noOfEggs, bool jumboSize );
+
+	   // I think I should use this one 
+	   // std::ostream& display(std::ostream& ostr = std::cout) const;
+	   std::ostream& display(std::ostream& ostr) const;
+
+
+	   std::istream& read(std::istream& istr);
 
 
 
+       operator bool() const;
 
 
    };

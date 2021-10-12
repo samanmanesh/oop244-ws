@@ -28,5 +28,38 @@ namespace sdds {
 		m_noOfEggs = -1;
 	}
 
+	ostream& EggCarton::display(std::ostream& ostr) const {
+		
+		std::cout << "check" << bool();
+		 
+		if (bool()) {
+			int cartonWidth = m_size == 6 ? 3 : 6;
+			for (int i = 0; i < m_size; i++) {
+				cout << ((i < m_noOfEggs) ? (m_jumboSize ? 'O' : 'o') : '~');
+				if ((i + 1) % cartonWidth == 0) cout << endl;
+			}
+		}
+		else
+		{
+			cout << "Broken Egg Carton!" << endl;
+		}
+
+		return ostr;
+	};
  
+
+	istream& EggCarton::read(std::istream& istr) {
+
+		
+
+	}
+
+
+	// needs to be checked 
+	 EggCarton::operator bool() const {
+		
+		 return(m_size > 0);
+	};
+
+		
 }
