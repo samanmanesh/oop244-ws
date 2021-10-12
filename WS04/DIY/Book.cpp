@@ -75,7 +75,7 @@ namespace sdds {
 
 	Book& Book::addChapter(const char* chapter_name, int noOfPages) {
 
-		if (chapter_name != nullptr && chapter_name[0] != '\0' && noOfPages > 0) {
+		if (chapter_name != nullptr && chapter_name[0] != '\0' && noOfPages > 0 && noOfPages < MAXPAGES) {
 			
 			Chapter* newChapters = nullptr;
 			newChapters = new Chapter[m_noOfChapter + 1];
