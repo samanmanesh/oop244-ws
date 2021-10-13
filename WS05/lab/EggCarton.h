@@ -25,13 +25,15 @@ namespace sdds {
 
 	   std::istream& read(std::istream& istr);
 
-
-
        operator bool() const;
-
 	   operator int() const;
-	
 	   operator double() const;
+
+	   EggCarton& operator--();
+	   EggCarton& operator++();
+	   EggCarton& operator--(int);
+	   EggCarton& operator++(int);
+
 
    };
 

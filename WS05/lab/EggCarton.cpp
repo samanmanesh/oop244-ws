@@ -106,5 +106,45 @@ namespace sdds {
 	};
 
 
+	EggCarton& EggCarton::operator--() {
+		
+		if (bool() && m_noOfEggs > 0) {
+
+			m_noOfEggs--;
+		}
+		return *this;
+	};
+	
+	EggCarton& EggCarton::operator++() {
+		
+		if (bool()) {
+
+			m_noOfEggs++;
+		}
+
+		if (m_noOfEggs > m_size) { setBroken();  };
+
+		return *this;
+	};
+
+	//returns the local copy by value.! Mybe needs to send the m_noOfEggs
+	
+	EggCarton& EggCarton::operator--(int) {
+
+		EggCarton copy = *this;
+		--(*this);
+		return copy;
+	};
+
+
+	EggCarton& EggCarton::operator--(int) {
+
+		EggCarton copy = *this;
+		++(*this);
+		return copy;
+	};
+
+
+
 
 }
