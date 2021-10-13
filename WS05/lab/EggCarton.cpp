@@ -8,7 +8,7 @@ using namespace sdds;
 namespace sdds {
 
 	EggCarton::EggCarton(int size = 6, int noOfEggs = 0, bool jumboSize = false) {
-		
+
 		if (((m_size % 6) == 0) && size >= 6 && size <= 36 && noOfEggs >= 0 && noOfEggs <= size)
 		{
 			m_size = size;
@@ -29,9 +29,9 @@ namespace sdds {
 	}
 
 	ostream& EggCarton::display(std::ostream& ostr) const {
-		
+
 		std::cout << "check" << bool();
-		 
+
 		if (bool()) {
 			int cartonWidth = m_size == 6 ? 3 : 6;
 			for (int i = 0; i < m_size; i++) {
@@ -46,7 +46,7 @@ namespace sdds {
 
 		return ostr;
 	};
- 
+
 
 	istream& EggCarton::read(std::istream& istr) {
 		char singleLetter;
@@ -62,8 +62,49 @@ namespace sdds {
 
 	}
 
-	 EggCarton::operator bool() const { return(m_size > 0); };
+	EggCarton::operator bool() const { return(m_size > 0); };
 
-	 
+
+	EggCarton::operator int() const {
+		int result;
+		if (bool()) {
+			result = m_noOfEggs;
+		}
+		else
+		{
+			result = -1;
+		}
+
+		return result;
+	};
+
+	EggCarton::operator double() const {
+
+		double totalWeight;
+
+		if (!bool()) return -1;
+
+
+		if (m_jumboSize)
+		{
+			//(noOfEggs x WeightOfOnEgg) / 1000.0
+
+			totalWeight = (m_noOfEggs * JumboEggWieght) / 1000.0;
+
+		}
+		else {
+			totalWeight = (m_noOfEggs * RegularEggWieght) / 1000.0;
+		}
+
+		/*if (bool())
+		{ return totalWeight; }
+		else
+		{
+			return -1;
+		} */
+		return totalWeight;
+	};
+
+
 
 }

@@ -29,6 +29,9 @@ namespace sdds {
 
        operator bool() const;
 
+	   operator int() const;
+	
+	   operator double() const;
 
    };
 
