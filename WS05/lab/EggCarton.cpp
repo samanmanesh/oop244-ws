@@ -48,7 +48,7 @@ namespace sdds {
 	};
 
 
-	istream& EggCarton::read(std::istream& istr) {
+	istream& EggCarton::read(std::istream& istr = std::cin) {
 		char singleLetter;
 		cin >> singleLetter;
 		cin.ignore(1, ',');
@@ -218,5 +218,10 @@ namespace sdds {
 	ostream& operator<<(ostream& ostr, const EggCarton& right) {
 
 		return (right.display(ostr));
+	};
+
+	istream& operator>>(istream& istr, EggCarton& right) {
+
+		return(right.read(istr));
 	};
 }

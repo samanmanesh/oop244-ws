@@ -23,7 +23,7 @@ namespace sdds {
 	   //std::ostream& display(std::ostream& ostr) const;
 
 
-	   std::istream& read(std::istream& istr);
+	   std::istream& read(std::istream& istr = std::cin);
 
        operator bool() const;
 	   operator int() const;
@@ -44,5 +44,7 @@ namespace sdds {
    int operator+(int left, const EggCarton& right);
 
    std::ostream& operator<<(std::ostream& ostr, const EggCarton& right);
+
+   istream& operator>>(istream& istr, EggCarton& right);
 }
 #endif
