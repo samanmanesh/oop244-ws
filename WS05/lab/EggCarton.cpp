@@ -9,7 +9,7 @@ namespace sdds {
 
 	EggCarton::EggCarton(int size = 6, int noOfEggs = 0, bool jumboSize = false) {
 		
-		if (size % 6 && size >= 6 && size <= 36 && noOfEggs >= 0 && noOfEggs <= size)
+		if (((m_size % 6) == 0) && size >= 6 && size <= 36 && noOfEggs >= 0 && noOfEggs <= size)
 		{
 			m_size = size;
 			m_noOfEggs = noOfEggs;
@@ -49,17 +49,21 @@ namespace sdds {
  
 
 	istream& EggCarton::read(std::istream& istr) {
+		char singleLetter;
+		cin >> singleLetter;
+		cin.ignore(1, ',');
+		cin >> m_size;
+		cin.ignore(1, ',');
+		cin >> m_noOfEggs;
 
-		
+		singleLetter == 'j' ? m_jumboSize = true : m_jumboSize = false;
+
+		if (!(((m_size % 6) == 0) && m_size >= 6 && m_size <= 36 && m_noOfEggs >= 0 && m_noOfEggs <= m_size)) setBroken();
 
 	}
 
+	 EggCarton::operator bool() const { return(m_size > 0); };
 
-	// needs to be checked 
-	 EggCarton::operator bool() const {
-		
-		 return(m_size > 0);
-	};
+	 
 
-		
 }
