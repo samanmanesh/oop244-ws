@@ -19,8 +19,8 @@ namespace sdds {
 	   EggCarton(int size , int noOfEggs, bool jumboSize );
 
 	   // I think I should use this one 
-	   // std::ostream& display(std::ostream& ostr = std::cout) const;
-	   std::ostream& display(std::ostream& ostr) const;
+	    std::ostream& display(std::ostream& ostr = std::cout) const;
+	   //std::ostream& display(std::ostream& ostr) const;
 
 
 	   std::istream& read(std::istream& istr);
@@ -41,5 +41,8 @@ namespace sdds {
 	   bool operator==(const EggCarton& right) const;
    };
 
+   int operator+(int left, const EggCarton& right);
+
+   std::ostream& operator<<(std::ostream& ostr, const EggCarton& right);
 }
 #endif

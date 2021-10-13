@@ -28,7 +28,7 @@ namespace sdds {
 		m_noOfEggs = -1;
 	}
 
-	ostream& EggCarton::display(std::ostream& ostr) const {
+	ostream& EggCarton::display(std::ostream& ostr = std::cout) const {
 
 		std::cout << "check" << bool();
 
@@ -67,6 +67,7 @@ namespace sdds {
 
 	EggCarton::operator int() const {
 		int result;
+		
 		if (bool()) {
 			result = m_noOfEggs;
 		}
@@ -156,6 +157,7 @@ namespace sdds {
 
 		m_noOfEggs += value;
 		if (m_noOfEggs > m_size) { setBroken(); };
+
 		return *this;
 	};
 
@@ -194,4 +196,27 @@ namespace sdds {
 
 		return result;
 	}
+
+	int operator+(int left, const EggCarton& right) {
+
+		int result;
+		if (right)
+		{
+			// OOP - 2217 OOP244 NAA missing Session time : 1:05:00 youtube video to watch
+			//result = left + (int)right;
+
+			result = EggCarton(left + (int)right);
+		}
+		else
+		{
+			result = left;
+		}
+
+		return result;
+	}
+
+	ostream& operator<<(ostream& ostr, const EggCarton& right) {
+
+		return (right.display(ostr));
+	};
 }
