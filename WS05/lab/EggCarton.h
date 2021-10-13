@@ -35,6 +35,10 @@ namespace sdds {
 	   EggCarton& operator++(int);
 
 
+	   EggCarton& operator=(int value);
+	   EggCarton& operator+=(int value);
+	   EggCarton& operator+=(EggCarton& right);
+	   bool operator==(const EggCarton& right) const;
    };
 
 }

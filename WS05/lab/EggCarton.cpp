@@ -107,28 +107,28 @@ namespace sdds {
 
 
 	EggCarton& EggCarton::operator--() {
-		
+
 		if (bool() && m_noOfEggs > 0) {
 
 			m_noOfEggs--;
 		}
 		return *this;
 	};
-	
+
 	EggCarton& EggCarton::operator++() {
-		
+
 		if (bool()) {
 
 			m_noOfEggs++;
 		}
 
-		if (m_noOfEggs > m_size) { setBroken();  };
+		if (m_noOfEggs > m_size) { setBroken(); };
 
 		return *this;
 	};
 
 	//returns the local copy by value.! Mybe needs to send the m_noOfEggs
-	
+
 	EggCarton& EggCarton::operator--(int) {
 
 		EggCarton copy = *this;
@@ -145,6 +145,53 @@ namespace sdds {
 	};
 
 
+	EggCarton& EggCarton::operator=(int value) {
 
+		m_noOfEggs = value;
+		if (m_noOfEggs > m_size) { setBroken(); }
+		return *this;
+	}
 
+	EggCarton& EggCarton::operator+=(int value) {
+
+		m_noOfEggs += value;
+		if (m_noOfEggs > m_size) { setBroken(); };
+		return *this;
+	};
+
+	EggCarton& EggCarton::operator+=(EggCarton& right) {
+
+		if (bool())
+		{
+			m_noOfEggs += right.m_noOfEggs;
+
+			if (m_noOfEggs > m_size)
+			{
+				right.m_noOfEggs = m_noOfEggs - m_size;
+			}
+		}
+		return *this;
+	};
+
+	bool EggCarton::operator==(const EggCarton& right) const {
+		bool result;
+		double currentWeight;
+		double rightWeight;
+
+		currentWeight = m_jumboSize ? (m_noOfEggs * JumboEggWieght/ 1000.0) : (m_noOfEggs * RegularEggWieght / 1000.0);
+		
+		rightWeight = right.m_jumboSize ? (right.m_noOfEggs * JumboEggWieght / 1000.0) : (right.m_noOfEggs * RegularEggWieght / 1000.0);
+			
+		double difference = currentWeight - rightWeight;
+		if (difference>= -0.001 && difference <= 0.001 )
+		{
+			result = true;
+		}
+		else
+		{
+			result = false;
+		}
+
+		return result;
+	}
 }
