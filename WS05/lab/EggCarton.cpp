@@ -116,9 +116,9 @@ namespace sdds {
 
 	EggCarton& EggCarton::operator--() {
 
-		if (*this && m_noOfEggs > 0) {
+		if ((*this) && m_noOfEggs > 0) {
 
-			m_noOfEggs--;
+			--m_noOfEggs;
 		}
 		return *this;
 	};
@@ -126,8 +126,7 @@ namespace sdds {
 	EggCarton& EggCarton::operator++() {
 
 		if (*this) {
-
-			m_noOfEggs++;
+			++m_noOfEggs;
 		}
 
 		if (m_noOfEggs > m_size) { setBroken(); };
@@ -135,18 +134,20 @@ namespace sdds {
 		return *this;
 	};
 
-	EggCarton& EggCarton::operator--(int) {
-
+	EggCarton EggCarton::operator--(int) {
+	
 		EggCarton copy = *this;
-		--(*this);
+		m_noOfEggs--;
 		return copy;
 	};
 
 
-	EggCarton& EggCarton::operator++(int) {
+	EggCarton EggCarton::operator++(int) {
 
 		EggCarton copy = *this;
-		++(*this);
+		
+		m_noOfEggs++;
+
 		return copy;
 	};
 
