@@ -33,18 +33,17 @@ namespace sdds {
 
 		//std::cout << "check" << bool();
 
-		if (!EggCarton()) {
-			cout << "Broken Egg Carton!" << endl;
-		}
-		else
-		{
+		if ( m_size > 0) {
+
 			int cartonWidth = m_size == 6 ? 3 : 6;
 			for (int i = 0; i < m_size; i++) {
 				cout << ((i < m_noOfEggs) ? (m_jumboSize ? 'O' : 'o') : '~');
 				if ((i + 1) % cartonWidth == 0) cout << endl;
 			}
-
-			
+		}
+		else
+		{
+			cout << "Broken Egg Carton!" << endl;
 		}
 
 		return ostr;
@@ -61,7 +60,7 @@ namespace sdds {
 
 		singleLetter == 'j' ? m_jumboSize = true : m_jumboSize = false;
 
-		if (!(m_size % 6 && m_size >= 6 && m_size <= 36 && m_noOfEggs >= 0 && m_noOfEggs <= m_size)) setBroken();
+		if (!((m_size % 6) == 0) && m_size >= 6 && m_size <= 36 && m_noOfEggs >= 0 && m_noOfEggs <= m_size) setBroken();
 		return istr;
 	}
 
@@ -70,8 +69,8 @@ namespace sdds {
 
 	EggCarton::operator int() const {
 		int result;
-		
-		if (EggCarton()) {
+		// should use bool operator to check if its brook
+		if ( m_size > 0) {
 			result = m_noOfEggs;
 		}
 		else
@@ -86,7 +85,8 @@ namespace sdds {
 
 		double totalWeight;
 
-		if (!EggCarton()) return -1;
+		//if (!EggCarton()) return -1;
+		if (!(m_size > 0)) return -1;
 
 
 		if (m_jumboSize)
@@ -112,7 +112,8 @@ namespace sdds {
 
 	EggCarton& EggCarton::operator--() {
 
-		if (EggCarton() && m_noOfEggs > 0) {
+		//if (EggCarton() && m_noOfEggs > 0) {
+		if ( m_size > 0 && m_noOfEggs > 0) {
 
 			m_noOfEggs--;
 		}
@@ -121,7 +122,8 @@ namespace sdds {
 
 	EggCarton& EggCarton::operator++() {
 
-		if (EggCarton()) {
+		//if (EggCarton()) {
+		if (m_size > 0) {
 
 			m_noOfEggs++;
 		}
