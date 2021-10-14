@@ -1,17 +1,28 @@
+// ===================================================================================
+//  Workshop: #5
+//  Part: 1 (Lab)
+// ===================================================================================
+//  Student Name  : Mohammadhossein Sobhanmanesh
+//  Student ID    : 116523200
+//  Student Email : msobhanmanesh@myseneca.ca
+//  Date          : 2020-10-14
+//  Course Section: OOP244-NAA
+// ===================================================================================
+// I have done all the coding by myself and only copied the code that my professor
+// provided to complete my workshops and assignments.
+// ===================================================================================
+
 #include <iostream>
 #include "EggCarton.h"
 using namespace std;
 using namespace sdds;
 
-
-
 namespace sdds {
 
-	EggCarton::EggCarton(int size , int noOfEggs , bool jumboSize) {
+	EggCarton::EggCarton(int size, int noOfEggs, bool jumboSize) {
 
-		if (((size % 6 ) == 0) && size >= 6 && size <= 36 && noOfEggs >= 0 && noOfEggs <= size)
-		{	
-			cout << "read inside" << endl;
+		if (((size % 6) == 0) && size >= 6 && size <= 36 && noOfEggs >= 0 && noOfEggs <= size)
+		{
 			m_size = size;
 			m_noOfEggs = noOfEggs;
 			m_jumboSize = jumboSize;
@@ -19,7 +30,6 @@ namespace sdds {
 		else
 		{
 			setBroken();
-
 		}
 
 	};
@@ -29,9 +39,7 @@ namespace sdds {
 		m_noOfEggs = -1;
 	}
 
-	ostream& EggCarton::display(std::ostream& ostr ) const {
-
-		//std::cout << "check" << bool();
+	ostream& EggCarton::display(std::ostream& ostr) const {
 
 		if (*this) {
 
@@ -69,8 +77,7 @@ namespace sdds {
 
 	EggCarton::operator int() const {
 		int result;
-		// should use bool operator to check if its brook
-		if ( *this) {
+		if (*this) {
 			result = m_noOfEggs;
 		}
 		else
@@ -84,14 +91,11 @@ namespace sdds {
 	EggCarton::operator double() const {
 
 		double totalWeight;
-
-		//if (!EggCarton()) return -1;
 		if (!(*this)) return -1;
-
 
 		if (m_jumboSize)
 		{
-			//(noOfEggs x WeightOfOnEgg) / 1000.0
+
 
 			totalWeight = (m_noOfEggs * JumboEggWieght) / 1000.0;
 
@@ -112,7 +116,6 @@ namespace sdds {
 
 	EggCarton& EggCarton::operator--() {
 
-		//if (EggCarton() && m_noOfEggs > 0) {
 		if (*this && m_noOfEggs > 0) {
 
 			m_noOfEggs--;
@@ -122,7 +125,6 @@ namespace sdds {
 
 	EggCarton& EggCarton::operator++() {
 
-		//if (EggCarton()) {
 		if (*this) {
 
 			m_noOfEggs++;
@@ -132,8 +134,6 @@ namespace sdds {
 
 		return *this;
 	};
-
-	//returns the local copy by value.! Mybe needs to send the m_noOfEggs
 
 	EggCarton& EggCarton::operator--(int) {
 
@@ -183,16 +183,8 @@ namespace sdds {
 
 	bool EggCarton::operator==(const EggCarton& right) const {
 		bool result;
-		/*double currentWeight;
-		double rightWeight;*/
-
-		/*currentWeight = m_jumboSize ? (m_noOfEggs * JumboEggWieght/ 1000.0) : (m_noOfEggs * RegularEggWieght / 1000.0);
-		
-		rightWeight = right.m_jumboSize ? (right.m_noOfEggs * JumboEggWieght / 1000.0) : (right.m_noOfEggs * RegularEgg*//*Wieght / 1000.0);*/
-			
-		/*double difference = currentWeight - rightWeight;*/
 		double difference = double(*this) - double(right);
-		if (difference> -0.001 && difference < 0.001 )
+		if (difference > -0.001 && difference < 0.001)
 		{
 			result = true;
 		}
@@ -209,16 +201,12 @@ namespace sdds {
 		int result;
 		if (right)
 		{
-			// OOP - 2217 OOP244 NAA missing Session time : 1:05:00 youtube video to watch
 			result = left + (int)right;
-
-			//result = EggCarton(left + (int)right);
 		}
 		else
 		{
 			result = left;
 		}
-
 		return result;
 	}
 
