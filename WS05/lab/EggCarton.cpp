@@ -33,7 +33,7 @@ namespace sdds {
 
 		//std::cout << "check" << bool();
 
-		if ( m_size > 0) {
+		if (*this) {
 
 			int cartonWidth = m_size == 6 ? 3 : 6;
 			for (int i = 0; i < m_size; i++) {
@@ -70,7 +70,7 @@ namespace sdds {
 	EggCarton::operator int() const {
 		int result;
 		// should use bool operator to check if its brook
-		if ( m_size > 0) {
+		if ( *this) {
 			result = m_noOfEggs;
 		}
 		else
@@ -86,7 +86,7 @@ namespace sdds {
 		double totalWeight;
 
 		//if (!EggCarton()) return -1;
-		if (!(m_size > 0)) return -1;
+		if (!(*this)) return -1;
 
 
 		if (m_jumboSize)
@@ -113,7 +113,7 @@ namespace sdds {
 	EggCarton& EggCarton::operator--() {
 
 		//if (EggCarton() && m_noOfEggs > 0) {
-		if ( m_size > 0 && m_noOfEggs > 0) {
+		if (*this && m_noOfEggs > 0) {
 
 			m_noOfEggs--;
 		}
@@ -123,7 +123,7 @@ namespace sdds {
 	EggCarton& EggCarton::operator++() {
 
 		//if (EggCarton()) {
-		if (m_size > 0) {
+		if (*this) {
 
 			m_noOfEggs++;
 		}
@@ -168,7 +168,7 @@ namespace sdds {
 
 	EggCarton& EggCarton::operator+=(EggCarton& right) {
 
-		if (EggCarton())
+		if (*this)
 		{
 			m_noOfEggs += right.m_noOfEggs;
 
