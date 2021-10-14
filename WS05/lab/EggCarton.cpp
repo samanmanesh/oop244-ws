@@ -60,7 +60,7 @@ namespace sdds {
 
 		singleLetter == 'j' ? m_jumboSize = true : m_jumboSize = false;
 
-		if (!((m_size % 6) == 0) && m_size >= 6 && m_size <= 36 && m_noOfEggs >= 0 && m_noOfEggs <= m_size) setBroken();
+		if (!(((m_size % 6) == 0) && m_size >= 6 && m_size <= 36 && m_noOfEggs >= 0 && m_noOfEggs <= m_size)) setBroken();
 		return istr;
 	}
 
@@ -175,6 +175,7 @@ namespace sdds {
 			if (m_noOfEggs > m_size)
 			{
 				right.m_noOfEggs = m_noOfEggs - m_size;
+				m_noOfEggs = m_size;
 			}
 		}
 		return *this;
@@ -182,15 +183,16 @@ namespace sdds {
 
 	bool EggCarton::operator==(const EggCarton& right) const {
 		bool result;
-		double currentWeight;
-		double rightWeight;
+		/*double currentWeight;
+		double rightWeight;*/
 
-		currentWeight = m_jumboSize ? (m_noOfEggs * JumboEggWieght/ 1000.0) : (m_noOfEggs * RegularEggWieght / 1000.0);
+		/*currentWeight = m_jumboSize ? (m_noOfEggs * JumboEggWieght/ 1000.0) : (m_noOfEggs * RegularEggWieght / 1000.0);
 		
-		rightWeight = right.m_jumboSize ? (right.m_noOfEggs * JumboEggWieght / 1000.0) : (right.m_noOfEggs * RegularEggWieght / 1000.0);
+		rightWeight = right.m_jumboSize ? (right.m_noOfEggs * JumboEggWieght / 1000.0) : (right.m_noOfEggs * RegularEgg*//*Wieght / 1000.0);*/
 			
-		double difference = currentWeight - rightWeight;
-		if (difference>= -0.001 && difference <= 0.001 )
+		/*double difference = currentWeight - rightWeight;*/
+		double difference = double(*this) - double(right);
+		if (difference> -0.001 && difference < 0.001 )
 		{
 			result = true;
 		}
@@ -208,9 +210,9 @@ namespace sdds {
 		if (right)
 		{
 			// OOP - 2217 OOP244 NAA missing Session time : 1:05:00 youtube video to watch
-			//result = left + (int)right;
+			result = left + (int)right;
 
-			result = EggCarton(left + (int)right);
+			//result = EggCarton(left + (int)right);
 		}
 		else
 		{
