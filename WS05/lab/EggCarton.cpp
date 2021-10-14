@@ -7,10 +7,11 @@ using namespace sdds;
 
 namespace sdds {
 
-	EggCarton::EggCarton(int size = 6, int noOfEggs = 0, bool jumboSize = false) {
+	EggCarton::EggCarton(int size , int noOfEggs , bool jumboSize) {
 
-		if (((m_size % 6) == 0) && size >= 6 && size <= 36 && noOfEggs >= 0 && noOfEggs <= size)
-		{
+		if (((size % 6 ) == 0) && size >= 6 && size <= 36 && noOfEggs >= 0 && noOfEggs <= size)
+		{	
+			cout << "read inside" << endl;
 			m_size = size;
 			m_noOfEggs = noOfEggs;
 			m_jumboSize = jumboSize;
@@ -28,27 +29,29 @@ namespace sdds {
 		m_noOfEggs = -1;
 	}
 
-	ostream& EggCarton::display(std::ostream& ostr = std::cout) const {
+	ostream& EggCarton::display(std::ostream& ostr ) const {
 
-		std::cout << "check" << bool();
+		//std::cout << "check" << bool();
 
-		if (bool()) {
+		if (!EggCarton()) {
+			cout << "Broken Egg Carton!" << endl;
+		}
+		else
+		{
 			int cartonWidth = m_size == 6 ? 3 : 6;
 			for (int i = 0; i < m_size; i++) {
 				cout << ((i < m_noOfEggs) ? (m_jumboSize ? 'O' : 'o') : '~');
 				if ((i + 1) % cartonWidth == 0) cout << endl;
 			}
-		}
-		else
-		{
-			cout << "Broken Egg Carton!" << endl;
+
+			
 		}
 
 		return ostr;
 	};
 
 
-	istream& EggCarton::read(std::istream& istr = std::cin) {
+	istream& EggCarton::read(std::istream& istr) {
 		char singleLetter;
 		cin >> singleLetter;
 		cin.ignore(1, ',');
@@ -58,8 +61,8 @@ namespace sdds {
 
 		singleLetter == 'j' ? m_jumboSize = true : m_jumboSize = false;
 
-		if (!(((m_size % 6) == 0) && m_size >= 6 && m_size <= 36 && m_noOfEggs >= 0 && m_noOfEggs <= m_size)) setBroken();
-
+		if (!(m_size % 6 && m_size >= 6 && m_size <= 36 && m_noOfEggs >= 0 && m_noOfEggs <= m_size)) setBroken();
+		return istr;
 	}
 
 	EggCarton::operator bool() const { return(m_size > 0); };
@@ -68,7 +71,7 @@ namespace sdds {
 	EggCarton::operator int() const {
 		int result;
 		
-		if (bool()) {
+		if (EggCarton()) {
 			result = m_noOfEggs;
 		}
 		else
@@ -83,7 +86,7 @@ namespace sdds {
 
 		double totalWeight;
 
-		if (!bool()) return -1;
+		if (!EggCarton()) return -1;
 
 
 		if (m_jumboSize)
@@ -109,7 +112,7 @@ namespace sdds {
 
 	EggCarton& EggCarton::operator--() {
 
-		if (bool() && m_noOfEggs > 0) {
+		if (EggCarton() && m_noOfEggs > 0) {
 
 			m_noOfEggs--;
 		}
@@ -118,7 +121,7 @@ namespace sdds {
 
 	EggCarton& EggCarton::operator++() {
 
-		if (bool()) {
+		if (EggCarton()) {
 
 			m_noOfEggs++;
 		}
@@ -138,7 +141,7 @@ namespace sdds {
 	};
 
 
-	EggCarton& EggCarton::operator--(int) {
+	EggCarton& EggCarton::operator++(int) {
 
 		EggCarton copy = *this;
 		++(*this);
@@ -163,7 +166,7 @@ namespace sdds {
 
 	EggCarton& EggCarton::operator+=(EggCarton& right) {
 
-		if (bool())
+		if (EggCarton())
 		{
 			m_noOfEggs += right.m_noOfEggs;
 

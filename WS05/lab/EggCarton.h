@@ -16,7 +16,7 @@ namespace sdds {
 
    public: 
 		
-	   EggCarton(int size , int noOfEggs, bool jumboSize );
+	   EggCarton(int size = 6, int noOfEggs = 0, bool jumboSize = false);
 
 	   // I think I should use this one 
 	    std::ostream& display(std::ostream& ostr = std::cout) const;
@@ -45,6 +45,6 @@ namespace sdds {
 
    std::ostream& operator<<(std::ostream& ostr, const EggCarton& right);
 
-   istream& operator>>(istream& istr, EggCarton& right);
+   std::istream& operator>>(std::istream& istr, EggCarton& right);
 }
 #endif
