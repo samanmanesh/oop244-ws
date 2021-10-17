@@ -42,8 +42,8 @@ namespace sdds {
 
 		EggCarton& operator--();
 		EggCarton& operator++();
-		EggCarton& operator--(int);
-		EggCarton& operator++(int);
+		EggCarton operator--(int);
+		EggCarton operator++(int);
 
 
 		EggCarton& operator=(int value);
