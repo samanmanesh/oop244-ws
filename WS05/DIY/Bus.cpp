@@ -20,7 +20,7 @@ using namespace sdds;
 
 namespace sdds {
 
-	Bus::Bus(int noOfSeats = 20, int noOfPassengers = 0) {
+	Bus::Bus(int noOfSeats, int noOfPassengers) {
 
 		if (((noOfSeats % 2) == 0) && noOfSeats >= 10 && noOfSeats <= 40 && noOfPassengers >= 0 && noOfPassengers <= noOfSeats) {
 
@@ -143,7 +143,7 @@ namespace sdds {
 		bool result = false;
 
 		if ((*this) && m_noOfPassengers > 0) {
-			
+
 			m_noOfPassengers--;
 			result = true;
 		}
@@ -172,9 +172,9 @@ namespace sdds {
 	Bus& Bus::operator=(int value) {
 
 		m_noOfPassengers = value;
-		
+
 		if (m_noOfPassengers > m_noOfSeats) {
-		
+
 			setOutOfService();
 		}
 		return *this;
@@ -192,7 +192,7 @@ namespace sdds {
 	}
 
 	Bus& Bus::operator+=(Bus& RO) {
-				
+
 		if ((*this) && (RO)) {
 
 			m_noOfPassengers += RO.m_noOfPassengers;
@@ -208,11 +208,11 @@ namespace sdds {
 
 
 	bool Bus::operator==(const Bus& RO) const {
-		
+
 		bool result = false;
 
-		if ( (*this) && (RO) && m_noOfPassengers == int(RO)) {
-	
+		if ((*this) && (RO) && m_noOfPassengers == int(RO)) {
+
 			result = true;
 		}
 		return result;
@@ -221,27 +221,28 @@ namespace sdds {
 
 
 	int operator+(int left, const Bus& right) {
-		
+
 		int result = left;
-		
+
 		if (right) {
-		
+
 			result += int(right);
 		}
 		return result;
 	}
 
 	ostream& operator<<(ostream& ostr, const Bus& right) {
-		
+
 		right.display(ostr);
-		
+
 		return ostr;
 	}
 
 	istream& operator>>(istream& istr, Bus& right) {
-		
-		right.read(istr);
-		
-		return istr;
-}
 
+		right.read(istr);
+
+		return istr;
+	}
+
+};
