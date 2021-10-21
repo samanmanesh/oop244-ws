@@ -8,8 +8,18 @@ namespace sdds {
 
 	bool Contact::validPhone(int areaCode, int exchangeCode, int number)const {
 		bool result = false;
+		
+		/*if (m_name != nullptr && m_name[0] != 0
+			&& lenght(m_area) == 3 && m_area >= 100
+			&& m_area <= 999 && lenght(m_exchangeCode) == 3
+			&& m_exchangeCode >= 100 && m_exchangeCode <= 999
+			&& m_number >= 0 && m_number <= 9999)
+		{*/
 
-		if (m_name != nullptr && m_name[0] != 0 && lenght(m_area) == 3 && m_area >= 100 && m_area <= 999 && lenght(m_exchangeCode) == 3 && m_exchangeCode >= 100 && m_exchangeCode <= 999 && m_number >= 0 && m_number <= 9999)
+		if ( lenght(areaCode) == 3 && areaCode >= 100 
+			&& areaCode <= 999 && lenght(exchangeCode) == 3 
+			&& exchangeCode >= 100 && exchangeCode <= 999 
+			&& number >= 0 && number <= 9999)
 		{
 			result = true;
 		}
@@ -46,6 +56,7 @@ namespace sdds {
 	void Contact::allocateAndCopy(const char* name) {
 
 		delete[] m_name;
+		//m_name = nullptr;
 		if (name != nullptr && name[0] != 0)
 		{
 			m_name = new char[strlen(name) + 1];
@@ -73,11 +84,12 @@ namespace sdds {
 		istr.width(4);
 		istr << m_number;
 		istr.fill(' ');
+		return istr;
 	};
 
 	void Contact::set(const char* name, int areaCode, int exchangeCode, int number) {
 
-		if (validPhone) {
+		if ( name != nullptr && name[0] != 0 && validPhone( areaCode, exchangeCode, number)) {
 			allocateAndCopy(name);
 			m_area = areaCode;
 			m_exchangeCode = exchangeCode;
@@ -99,8 +111,10 @@ namespace sdds {
 		m_exchangeCode = 0;
 		m_name = 0;
 	};
-	Contact::Contact(char* name, int areaCode, int exchangeCode, int number) {
 
+	Contact::Contact(const char* name, int areaCode, int exchangeCode, int number) {
+		
+		//setEmpty();
 		set(name, areaCode, exchangeCode, number);
 	};
 
@@ -138,7 +152,7 @@ namespace sdds {
 		return  m_name != nullptr;
 	}
 
-	ostream& Contact::print(ostream& ostr, bool toFile = true) const {
+	ostream& Contact::print(ostream& ostr, bool toFile ) const {
 		
 		if (*this){
 
@@ -148,14 +162,16 @@ namespace sdds {
 				ostr << ",";
 				printPhoneNumber(ostr);
 			}
-			else
+			else if(toFile == false)
 			{
+				ostr << m_name;
+				ostr.width(50);
 				ostr.setf(ios::left);
 				ostr.fill('.');
-				ostr.width(50);
-				ostr << m_name;
+				//ostr << m_name;
 				ostr.setf(ios::right);
-				ostr.fill(' ');
+				//ostr.fill('.');
+				//ostr.fill(' ');
 				printPhoneNumber(ostr);
 			}
 		}
@@ -183,10 +199,10 @@ namespace sdds {
 		{
 			set(name, areaCode, exchangeCode, number);
 		}
-		else {
-			// Its maybe an obtional thing I put here
-			istr.clear();
-		}
+		//else {
+		//	// Its maybe an obtional thing I put here
+		//	istr.clear();
+		//}
 		return istr;
 	};
 

@@ -26,7 +26,7 @@ namespace sdds {
     public:
         
         Contact();
-        Contact(char* name, int areaCode, int exchangeCode, int number);
+        Contact(const char* name, int areaCode, int exchangeCode, int number);
 
         Contact(const Contact& cnt);
         Contact& operator=(const Contact& cnt);
