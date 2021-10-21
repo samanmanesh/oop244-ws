@@ -84,6 +84,7 @@ namespace sdds {
 		istr.width(4);
 		istr << m_number;
 		istr.fill(' ');
+		istr.unsetf(ios::right);
 		return istr;
 	};
 
@@ -160,20 +161,17 @@ namespace sdds {
 			{
 				ostr << m_name;
 				ostr << ",";
-				printPhoneNumber(ostr);
 			}
 			else if(toFile == false)
 			{
-				ostr << m_name;
 				ostr.width(50);
 				ostr.setf(ios::left);
 				ostr.fill('.');
-				//ostr << m_name;
+				ostr << m_name;
 				ostr.setf(ios::right);
-				//ostr.fill('.');
-				//ostr.fill(' ');
-				printPhoneNumber(ostr);
+				ostr.fill(' ');
 			}
+			printPhoneNumber(ostr);
 		}
 		return ostr;
 	};
