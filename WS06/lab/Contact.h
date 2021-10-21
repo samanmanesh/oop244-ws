@@ -20,7 +20,7 @@ namespace sdds {
 
         void extractChar(std::istream& istr, char ch)const;
 
-
+        ostream& printPhoneNumber(ostream& istr)const;
     public:
         
     };

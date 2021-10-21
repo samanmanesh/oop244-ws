@@ -65,4 +65,15 @@ namespace sdds {
 		}
 	
 	};
+
+	ostream& Contact::printPhoneNumber(ostream& istr)const {
+		
+		istr << "(" << m_area << ") " << m_exchangeCode << "-";
+		istr.setf(ios::right);
+		istr.fill('0');
+		istr.width(4);
+		istr << m_number;
+		istr.fill(' ');
+	};
 }
+
