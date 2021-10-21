@@ -1,3 +1,18 @@
+// ===================================================================================
+//  Workshop: #6
+//  Part: 1 (Lab)
+// ===================================================================================
+//  Student Name  : Mohammadhossein Sobhanmanesh
+//  Student ID    : 116523200
+//  Student Email : msobhanmanesh@myseneca.ca
+//  Date          : 2020-10-21
+//  Course Section: OOP244-NAA
+// ===================================================================================
+// I have done all the coding by myself and only copied the code that my professor
+// provided to complete my workshops and assignments.
+// ===================================================================================
+
+
 #define  _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <cstring>
@@ -9,12 +24,6 @@ namespace sdds {
 	bool Contact::validPhone(int areaCode, int exchangeCode, int number)const {
 		bool result = false;
 		
-		/*if (m_name != nullptr && m_name[0] != 0
-			&& lenght(m_area) == 3 && m_area >= 100
-			&& m_area <= 999 && lenght(m_exchangeCode) == 3
-			&& m_exchangeCode >= 100 && m_exchangeCode <= 999
-			&& m_number >= 0 && m_number <= 9999)
-		{*/
 
 		if ( lenght(areaCode) == 3 && areaCode >= 100 
 			&& areaCode <= 999 && lenght(exchangeCode) == 3 
@@ -35,11 +44,6 @@ namespace sdds {
 	int Contact::lenght(int value) const {
 		int valueLength = 0;
 
-		/*if (value == 0) {
-			valueLength = 1;
-				return valueLength;
-		};*/
-
 		do {
 			valueLength++;
 			value = value / 10;
@@ -56,7 +60,6 @@ namespace sdds {
 	void Contact::allocateAndCopy(const char* name) {
 
 		delete[] m_name;
-		//m_name = nullptr;
 		if (name != nullptr && name[0] != 0)
 		{
 			m_name = new char[strlen(name) + 1];
@@ -114,8 +117,6 @@ namespace sdds {
 	};
 
 	Contact::Contact(const char* name, int areaCode, int exchangeCode, int number) {
-		
-		//setEmpty();
 		set(name, areaCode, exchangeCode, number);
 	};
 
@@ -137,7 +138,6 @@ namespace sdds {
 
 		if (this != &cnt)
 		{
-			//delete[] m_name;
 			set(cnt.m_name, cnt.m_area, cnt.m_exchangeCode, cnt.m_number);
 		}
 		return *this;
@@ -197,10 +197,6 @@ namespace sdds {
 		{
 			set(name, areaCode, exchangeCode, number);
 		}
-		//else {
-		//	// Its maybe an obtional thing I put here
-		//	istr.clear();
-		//}
 		return istr;
 	};
 
@@ -215,7 +211,6 @@ namespace sdds {
 			ostr << "Invalid Phone Record" << endl;
 		}
 		return ostr;
-	
 	};
 
 	istream& operator>>(istream& istr, Contact& cnt) {
