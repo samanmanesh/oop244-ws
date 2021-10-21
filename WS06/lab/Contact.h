@@ -36,7 +36,7 @@ namespace sdds {
         operator bool() const;
 
        std::ostream& print(std::ostream& ostr, bool toFile = true) const;
-
+       std::istream& read(std::istream& istr);
     };
 }
 #endif // !SDDS_CONTACT_H

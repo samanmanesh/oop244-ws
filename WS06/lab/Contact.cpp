@@ -162,7 +162,33 @@ namespace sdds {
 		return ostr;
 	};
 
+	istream& Contact::read(istream& istr) {
+		
+		char name[128];
+		int areaCode;
+		int exchangeCode;
+		int number;
+		istr.get(name, MaxNameLength, ',');
+		extractChar(istr, ',');
+		extractChar(istr, '(');
+		istr >> areaCode;
+		extractChar(istr, ')');
+		extractChar(istr, ' ');
+		istr >> exchangeCode;
+		extractChar(istr, '-');
+		istr >> number;
+		extractChar(istr, '\n');
 
+		if (!istr.fail())
+		{
+			set(name, areaCode, exchangeCode, number);
+		}
+		else {
+			// Its maybe an obtional thing I put here
+			istr.clear();
+		}
+		return istr;
+	};
 }
 
 
