@@ -137,6 +137,9 @@ namespace sdds {
 	Contact::operator bool() const {
 		return  m_name != nullptr;
 	}
+
+
+
 }	
 
 
