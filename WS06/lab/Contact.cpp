@@ -75,5 +75,38 @@ namespace sdds {
 		istr << m_number;
 		istr.fill(' ');
 	};
-}
+
+	void Contact::set(const char* name, int areaCode, int exchangeCode, int number) {
+	
+		if (validPhone) {
+			allocateAndCopy(name);
+			m_area = areaCode;
+			m_exchangeCode = exchangeCode;
+			m_number = number;
+		}
+		else
+		{
+			delete[] m_name;
+			setEmpty();
+		}
+	
+	};
+
+
+	Contact::Contact() {
+			
+		setEmpty();
+		m_area = 0;
+		m_exchangeCode = 0;
+		m_name = 0;
+	};
+	Contact::Contact(char* name, int areaCode, int exchangeCode, int number) {
+	
+		set(name, areaCode, exchangeCode, number);
+	};
+
+}	
+
+
+
 

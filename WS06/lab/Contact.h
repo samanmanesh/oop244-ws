@@ -20,9 +20,15 @@ namespace sdds {
 
         void extractChar(std::istream& istr, char ch)const;
 
-        ostream& printPhoneNumber(ostream& istr)const;
+       std::ostream& printPhoneNumber(std::ostream& istr)const;
+
+        void set(const char* name, int areaCode, int exchangeCode, int number);
     public:
         
+        Contact();
+        Contact(char* name, int areaCode, int exchangeCode, int number);
+
+
     };
 }
 #endif // !SDDS_CONTACT_H
