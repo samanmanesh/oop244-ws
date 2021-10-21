@@ -18,6 +18,9 @@ namespace sdds {
 
         void allocateAndCopy(const char* name);
 
+        void extractChar(std::istream& istr, char ch)const;
+
+
     public:
         
     };

@@ -52,6 +52,17 @@ namespace sdds {
 		}
 		m_name = new char[strlen(name) + 1];
 		strcpy(m_name, name);
+	};
 
+	void Contact:: extractChar(std::istream& istr, char ch)const {
+		
+		if (istr.peek() == ch) {
+			istr.get();
+		}
+		else
+		{
+			istr.setstate(ios::failbit);
+		}
+	
 	};
 }
