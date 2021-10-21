@@ -9,14 +9,14 @@ namespace sdds {
 	bool Contact::validPhone(int areaCode, int exchangeCode, int number)const {
 		bool result = false;
 
-			if (m_name != nullptr && m_name[0] != 0 && lenght(m_area) == 3 && m_area >= 100 && m_area <= 999 && lenght(m_exchangeCode) == 3 && m_exchangeCode >= 100 && m_exchangeCode <= 999 && m_number >= 0 && m_number <= 9999)
-			{
-				result = true;
-			}
-			else
-			{
-				result = false;
-			};
+		if (m_name != nullptr && m_name[0] != 0 && lenght(m_area) == 3 && m_area >= 100 && m_area <= 999 && lenght(m_exchangeCode) == 3 && m_exchangeCode >= 100 && m_exchangeCode <= 999 && m_number >= 0 && m_number <= 9999)
+		{
+			result = true;
+		}
+		else
+		{
+			result = false;
+		};
 
 		return result;
 	};
@@ -44,7 +44,7 @@ namespace sdds {
 	};
 
 	void Contact::allocateAndCopy(const char* name) {
-		
+
 		delete[] m_name;
 		if (name != nullptr && name[0] != 0)
 		{
@@ -53,8 +53,8 @@ namespace sdds {
 		}
 	};
 
-	void Contact:: extractChar(std::istream& istr, char ch)const {
-		
+	void Contact::extractChar(std::istream& istr, char ch)const {
+
 		if (istr.peek() == ch) {
 			istr.get();
 		}
@@ -62,11 +62,11 @@ namespace sdds {
 		{
 			istr.setstate(ios::failbit);
 		}
-	
+
 	};
 
 	ostream& Contact::printPhoneNumber(ostream& istr)const {
-		
+
 		istr << "(" << m_area << ") " << m_exchangeCode << "-";
 		istr.setf(ios::right);
 		istr.fill('0');
@@ -76,7 +76,7 @@ namespace sdds {
 	};
 
 	void Contact::set(const char* name, int areaCode, int exchangeCode, int number) {
-	
+
 		if (validPhone) {
 			allocateAndCopy(name);
 			m_area = areaCode;
@@ -88,24 +88,24 @@ namespace sdds {
 			delete[] m_name;
 			setEmpty();
 		}
-	
+
 	};
 
 
 	Contact::Contact() {
-			
+
 		setEmpty();
 		m_area = 0;
 		m_exchangeCode = 0;
 		m_name = 0;
 	};
 	Contact::Contact(char* name, int areaCode, int exchangeCode, int number) {
-	
+
 		set(name, areaCode, exchangeCode, number);
 	};
 
 
-	Contact::Contact(const Contact& cnt){
+	Contact::Contact(const Contact& cnt) {
 		if (cnt.m_name)
 		{
 			set(cnt.m_name, cnt.m_area, cnt.m_exchangeCode, cnt.m_number);
@@ -119,7 +119,7 @@ namespace sdds {
 
 
 	Contact& Contact::operator=(const Contact& cnt) {
-		
+
 		if (this != &cnt)
 		{
 			//delete[] m_name;
@@ -138,9 +138,32 @@ namespace sdds {
 		return  m_name != nullptr;
 	}
 
+	ostream& Contact::print(ostream& ostr, bool toFile = true) const {
+		
+		if (*this){
+
+			if (toFile)
+			{
+				ostr << m_name;
+				ostr << ",";
+				printPhoneNumber(ostr);
+			}
+			else
+			{
+				ostr.setf(ios::left);
+				ostr.fill('.');
+				ostr.width(50);
+				ostr << m_name;
+				ostr.setf(ios::right);
+				ostr.fill(' ');
+				printPhoneNumber(ostr);
+			}
+		}
+		return ostr;
+	};
 
 
-}	
+}
 
 
 

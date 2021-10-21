@@ -35,6 +35,8 @@ namespace sdds {
 
         operator bool() const;
 
+       std::ostream& print(std::ostream& ostr, bool toFile = true) const;
+
     };
 }
 #endif // !SDDS_CONTACT_H
