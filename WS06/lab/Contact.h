@@ -38,6 +38,9 @@ namespace sdds {
        std::ostream& print(std::ostream& ostr, bool toFile = true) const;
        std::istream& read(std::istream& istr);
     };
+
+    std::ostream& operator<<(std::ostream& ostr, const Contact& cnt);
+    std::istream& operator>>(std::istream& istr, Contact& cnt);
 }
 #endif // !SDDS_CONTACT_H
 

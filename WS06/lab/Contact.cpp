@@ -189,6 +189,24 @@ namespace sdds {
 		}
 		return istr;
 	};
+
+
+	ostream& operator<<(ostream& ostr, const Contact& cnt) {
+		
+		if (cnt) {
+			cnt.print(ostr, false);
+		}
+		else
+		{
+			ostr << "Invalid Phone Record" << endl;
+		}
+		return ostr;
+	
+	};
+
+	istream& operator>>(istream& istr, Contact& cnt) {
+		return (cnt.read(istr));
+	}
 }
 
 
