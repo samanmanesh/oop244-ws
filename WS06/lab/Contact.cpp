@@ -208,7 +208,7 @@ namespace sdds {
 		}
 		else
 		{
-			ostr << "Invalid Phone Record" << endl;
+			ostr << "Invalid Phone Record";
 		}
 		return ostr;
 	};
