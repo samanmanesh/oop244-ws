@@ -17,10 +17,10 @@
 #include <iostream>
 namespace sdds {
 
-    const int MaxBookTitileLength = 40;
-    const int MaxAuthorNameLength = 25;
-    const int MaxBookCaseNum = 132;
-    const int MaxShelfNum = 7;
+    const int MaxTitleLen = 40;
+    const int MaxAuthorLen = 25;
+    const int NoOfBookCases = 132;
+    const int NoOfShelves = 7;
 
     class Book {
         char* m_bookTitle{}; // sets m_name to nullptr before any constructor invocation 
@@ -28,9 +28,19 @@ namespace sdds {
         int m_bookCaseNum;
         int m_shelfNum;
         
-        bool validBook(char* bookTitle, char* authorName, int bookCaseNum, int shelfNum)const;
+        bool validBook(const char* bookTitle,const char* authorName, int bookCaseNum, int shelfNum)const;
        
+        void setEmpty();
+
+        void allocateAndCopy(const char* bookTitle, const char* authorName);
+
+        void set(const char* bookTitle, const char* authorName, int bookCaseNum, int shelfNum);
+
     public:
+
+        Book();
+        Book(const char* bookTitle, const char* authorName, int bookCaseNum, int shelfNum);
+
 
        
     };
