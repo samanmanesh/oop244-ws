@@ -55,7 +55,7 @@ namespace sdds {
 
 
 	Book::Book(const Book& bookToBeCopied) {
-		
+
 		if (bookToBeCopied.m_authorName && bookToBeCopied.m_bookTitle)
 		{
 			set(bookToBeCopied.m_bookTitle, bookToBeCopied.m_authorName, bookToBeCopied.m_bookCaseNum, bookToBeCopied.m_shelfNum);
@@ -64,7 +64,7 @@ namespace sdds {
 		{
 			setEmpty();
 		}
-	
+
 	};
 
 	Book& Book::operator=(const Book& bookToBeCopied) {
@@ -117,12 +117,12 @@ namespace sdds {
 		return  (m_bookTitle != nullptr && m_authorName);
 	};
 
-	ostream& Book::write(ostream& ostr, bool onScreen = true)const {
-	
-		if (*this) {
+	ostream& Book::write(ostream& ostr, bool onScreen)const {
 
-			if (onScreen)
-			{
+		if (onScreen)
+		{
+			if (*this) {
+
 				ostr.width(40);
 				ostr.setf(ios::left);
 				ostr << m_bookTitle;
@@ -133,8 +133,11 @@ namespace sdds {
 				ostr << m_authorName;
 				ostr.setf(ios::right);
 				ostr << "| ";
-				ostr << m_shelfNum << "/" << m_bookCaseNum;
-
+				ostr << m_shelfNum << "/";
+				ostr.fill('0');
+				ostr.width(3);
+				ostr<< m_bookCaseNum;
+				ostr.fill(' ');
 			}
 			else
 			{
@@ -146,11 +149,36 @@ namespace sdds {
 				ostr << "| ";
 				ostr.width(28);
 				ostr << "| ";
-
+			}
+		}
+		else
+		{
+			if (*this)
+			{
+				ostr << m_bookTitle << "," << m_authorName << "," << m_shelfNum << "/" << m_bookCaseNum;
+			}
+			else
+			{
+				ostr << "Invalid Book Record";
 			}
 
 		}
-	
+
+		return ostr;
 	};
+
+
+	ostream& operator<<(ostream& ostr, const Book& RO) {
+
+		if (RO) {
+			RO.write(ostr, false);
+		}
+		else
+		{
+			ostr << "Invalid Phone Record";
+		}
+		return ostr;
+	};
+
 }
 
