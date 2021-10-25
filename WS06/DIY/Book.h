@@ -40,7 +40,8 @@ namespace sdds {
 
         Book();
         Book(const char* bookTitle, const char* authorName, int bookCaseNum, int shelfNum);
-
+        
+        Book& operator=(const Book& bookToBeCopied);
 
        
     };

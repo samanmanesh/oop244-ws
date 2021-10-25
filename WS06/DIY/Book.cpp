@@ -54,6 +54,15 @@ namespace sdds {
 	}
 
 
+	Book& Book::operator=(const Book& bookToBeCopied) {
+
+		if (this != &bookToBeCopied)
+		{
+			set(bookToBeCopied.m_bookTitle, bookToBeCopied.m_authorName, bookToBeCopied.m_bookCaseNum, bookToBeCopied.m_shelfNum);
+		}
+		return *this;
+	};
+
 
 
 
