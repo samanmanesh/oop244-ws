@@ -54,6 +54,19 @@ namespace sdds {
 	}
 
 
+	Book::Book(const Book& bookToBeCopied) {
+		
+		if (bookToBeCopied.m_authorName && bookToBeCopied.m_bookTitle)
+		{
+			set(bookToBeCopied.m_bookTitle, bookToBeCopied.m_authorName, bookToBeCopied.m_bookCaseNum, bookToBeCopied.m_shelfNum);
+		}
+		else
+		{
+			setEmpty();
+		}
+	
+	};
+
 	Book& Book::operator=(const Book& bookToBeCopied) {
 
 		if (this != &bookToBeCopied)
@@ -100,6 +113,44 @@ namespace sdds {
 	};
 
 
+	Book::operator bool() const {
+		return  (m_bookTitle != nullptr && m_authorName);
+	};
 
+	ostream& Book::write(ostream& ostr, bool onScreen = true)const {
+	
+		if (*this) {
+
+			if (onScreen)
+			{
+				ostr.width(40);
+				ostr.setf(ios::left);
+				ostr << m_bookTitle;
+				ostr.setf(ios::right);
+				ostr << "| ";
+				ostr.setf(ios::left);
+				ostr.width(28);
+				ostr << m_authorName;
+				ostr.setf(ios::right);
+				ostr << "| ";
+				ostr << m_shelfNum << "/" << m_bookCaseNum;
+
+			}
+			else
+			{
+				ostr.width(40);
+				ostr.setf(ios::left);
+				ostr.fill('.');
+				ostr << "Invalid Book Record ";
+				ostr.setf(ios::right);
+				ostr << "| ";
+				ostr.width(28);
+				ostr << "| ";
+
+			}
+
+		}
+	
+	};
 }
 
