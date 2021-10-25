@@ -36,6 +36,7 @@ namespace sdds {
 
         void set(const char* bookTitle, const char* authorName, int bookCaseNum, int shelfNum);
 
+        void extractChar(std::istream& istr, char ch)const;
     public:
 
         Book();
@@ -47,9 +48,11 @@ namespace sdds {
         operator bool() const;
 
         std::ostream& write(std::ostream& ostr, bool onScreen = true)const;
-       
+        std::istream& read(std::istream& istr);
     };
 
+    std::ostream& operator<<(std::ostream& ostr, const Book& RO);
+    std::istream& operator>>(std::istream& istr, Book& RO);
     
 }
 #endif // !SDDS_BOOK_H

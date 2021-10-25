@@ -114,7 +114,7 @@ namespace sdds {
 
 
 	Book::operator bool() const {
-		return  (m_bookTitle != nullptr && m_authorName);
+		return  (m_bookTitle != nullptr && m_authorName != nullptr);
 	};
 
 	ostream& Book::write(ostream& ostr, bool onScreen)const {
@@ -123,13 +123,13 @@ namespace sdds {
 		{
 			if (*this) {
 
-				ostr.width(40);
+				ostr.width(45);
 				ostr.setf(ios::left);
 				ostr << m_bookTitle;
 				ostr.setf(ios::right);
 				ostr << "| ";
 				ostr.setf(ios::left);
-				ostr.width(28);
+				ostr.width(25);
 				ostr << m_authorName;
 				ostr.setf(ios::right);
 				ostr << "| ";
@@ -168,17 +168,67 @@ namespace sdds {
 	};
 
 
-	ostream& operator<<(ostream& ostr, const Book& RO) {
 
-		if (RO) {
-			RO.write(ostr, false);
+	void Book::extractChar(std::istream& istr, char ch)const {
+
+		if (istr.peek() == ch ) {
+			istr.get();
 		}
 		else
 		{
-			ostr << "Invalid Phone Record";
+			istr.setstate(ios::failbit);
+		}
+
+	};
+
+	istream& Book::read(istream& istr) {
+
+		char bookTitle[128];
+		char authorName[128];
+		int shelfNum;
+		int bookCaseNum;
+		
+		istr.getline(bookTitle, MaxTitleLen, ',');
+		extractChar(istr, ',');
+		istr.getline(authorName, MaxAuthorLen, ',');
+		extractChar(istr, ',');
+		istr>> shelfNum;
+		extractChar(istr, '/');
+		istr >> bookCaseNum;
+		extractChar(istr, '\n');
+
+		if (shelfNum > NoOfShelves || shelfNum < 0 || bookCaseNum > NoOfBookCases || bookCaseNum < 0)
+		{
+			istr.setstate(ios::failbit);
+		}
+
+		if (!istr.fail())
+		{
+			set(bookTitle, authorName, shelfNum, bookCaseNum);
+		}
+		return istr;
+	};
+
+
+
+
+
+	ostream& operator<<(ostream& ostr, const Book& RO) {
+
+		if (RO) {
+			
+				RO.write(ostr, true);
+		}
+		else
+		{
+			ostr << "Invalid Book Record";
 		}
 		return ostr;
 	};
-
+	
+	istream& operator>>(istream& istr, Book& RO) {
+		return (RO.read(istr));
+	}
 }
+
 
