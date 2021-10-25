@@ -20,6 +20,17 @@ using namespace std;
 using namespace sdds;
 namespace sdds {
 
+	bool Book::validBook(char* bookTitle, char* authorName, int bookCaseNum, int shelfNum)const {
+		
+		bool result = false;
+
+		if ( bookTitle != nullptr && bookTitle[0] != 0 && authorName != nullptr && authorName != 0)
+		{
+
+		}
+	
+	
+	};
 	
 }
 

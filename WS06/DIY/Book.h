@@ -17,14 +17,18 @@
 #include <iostream>
 namespace sdds {
 
-    const int MaxNameLength = 55;
+    const int MaxBookTitileLength = 40;
+    const int MaxAuthorNameLength = 25;
+    const int MaxBookCaseNum = 132;
+    const int MaxShelfNum = 7;
 
     class Book {
-        char* m_name{}; // sets m_name to nullptr before any constructor invocation 
-        int m_area;
-        int m_exchangeCode;
-        int m_number;
-
+        char* m_bookTitle{}; // sets m_name to nullptr before any constructor invocation 
+        char* m_authorName{};
+        int m_bookCaseNum;
+        int m_shelfNum;
+        
+        bool validBook(char* bookTitle, char* authorName, int bookCaseNum, int shelfNum)const;
        
     public:
 
