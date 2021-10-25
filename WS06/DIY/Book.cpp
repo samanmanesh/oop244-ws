@@ -24,11 +24,16 @@ namespace sdds {
 		
 		bool result = false;
 
-		if ( bookTitle != nullptr && bookTitle[0] != 0 && authorName != nullptr && authorName != 0)
+		if ( bookTitle != nullptr && bookTitle[0] != 0 && authorName != nullptr && authorName[0] != 0 &&
+			bookCaseNum >= 1 && bookCaseNum <= MaxBookCaseNum && 
+			shelfNum >= 1 && shelfNum <= MaxShelfNum)
 		{
+			result = true;
 
 		}
-	
+		else
+			result = false;
+		return result;
 	
 	};
 	
