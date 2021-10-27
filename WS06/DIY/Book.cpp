@@ -144,14 +144,14 @@ namespace sdds {
 
 				ostr << "| ";
 
-				ostr.setf(ios::left);
 				ostr << m_shelfNum << "/";
+				ostr.setf(ios::right);
 				ostr.fill('0');
 				ostr.width(3);
 				ostr << m_bookCaseNum;
 
 				ostr.fill(' ');
-				ostr.unsetf(ios::left);
+				ostr.unsetf(ios::right);
 			
 			}
 			else
@@ -287,9 +287,7 @@ namespace sdds {
 		int bookCaseNum;
 		
 		istr.getline(bookTitle, MaxTitleLen, ',');
-		//extractChar(istr,  ',');
 		istr.getline(authorName, MaxAuthorLen, ',');
-		//extractChar(istr, ',');
 		istr>> shelfNum;
 		extractChar(istr, '/');
 		istr >> bookCaseNum;
@@ -299,14 +297,14 @@ namespace sdds {
 		{
 			istr.setstate(ios::failbit);
 		}*/
-		if (!validBook( bookTitle, authorName, shelfNum, bookCaseNum ))
+		if (!validBook( bookTitle, authorName,  bookCaseNum, shelfNum ))
 		{
 			istr.setstate(ios::failbit);
 		}
 
 		if (!istr.fail())
 		{
-			set(bookTitle, authorName, shelfNum, bookCaseNum);
+			set(bookTitle, authorName,  bookCaseNum , shelfNum);
 		}
 		return istr;
 	};
