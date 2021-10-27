@@ -45,6 +45,7 @@ namespace sdds {
         Book(const Book& bookToBeCopied);
         Book& operator=(const Book& bookToBeCopied);
 
+        ~Book();
         operator bool() const;
 
         std::ostream& write(std::ostream& ostr, bool onScreen = true)const;

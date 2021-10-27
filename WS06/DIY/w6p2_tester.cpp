@@ -40,7 +40,7 @@ void constructionTest() {
    header();
    for (int i = 0; i < 8; cout << B[i++] << endl);
    hr("End Constructor test");
-}
+} 
 
 
 void readAndRuleOfThreeTest() {
