@@ -123,21 +123,29 @@ namespace sdds {
 		{
 			if (*this) {
 
-				ostr.width(45);
+				ostr.width(40);
 				ostr.setf(ios::left);
 				ostr << m_bookTitle;
-				ostr.setf(ios::right);
+				ostr.unsetf(ios::left);
+				
 				ostr << "| ";
+				
 				ostr.setf(ios::left);
 				ostr.width(25);
 				ostr << m_authorName;
-				ostr.setf(ios::right);
+				ostr.unsetf(ios::left);
+				
 				ostr << "| ";
+				
+				ostr.setf(ios::left);
 				ostr << m_shelfNum << "/";
 				ostr.fill('0');
 				ostr.width(3);
 				ostr<< m_bookCaseNum;
+				
 				ostr.fill(' ');
+				ostr.unsetf(ios::left);
+				
 			}
 			else
 			{
@@ -145,10 +153,17 @@ namespace sdds {
 				ostr.setf(ios::left);
 				ostr.fill('.');
 				ostr << "Invalid Book Record ";
-				ostr.setf(ios::right);
+				ostr.unsetf(ios::left);
+				//ostr.setf(ios::right);
 				ostr << "| ";
-				ostr.width(28);
+				
+				ostr.width(27);
 				ostr << "| ";
+				ostr.setf(ios::left);
+				ostr.width(5);
+				ostr << ".";
+				ostr.unsetf(ios::right);
+				ostr.fill(' ');
 			}
 		}
 		else
@@ -215,14 +230,16 @@ namespace sdds {
 
 	ostream& operator<<(ostream& ostr, const Book& RO) {
 
-		if (RO) {
+		RO.write(ostr, true);
+
+		/*if (RO) {
 			
 				RO.write(ostr, true);
 		}
 		else
 		{
 			ostr << "Invalid Book Record";
-		}
+		}*/
 		return ostr;
 	};
 	
