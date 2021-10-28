@@ -122,12 +122,3 @@ The Great Gatsby                        | F. Scott Fitzgerald      | 1/033
 
 */
 
-
-/*
-Example of the output of a book row with a ruler to help for counting.
-         1         2         3         4         5         6         7         8
-12345678901234567890123456789012345678901234567890123456789012345678901234567890
-Huckleberry Finn                        | Mark Twain               | 7/132
-The Alchemist                           | Paulo Coelho             | 1/025
-The Great Gatsby                        | F. Scott Fitzgerald      | 1/033
-*/

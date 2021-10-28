@@ -57,8 +57,8 @@ namespace sdds {
 
 	Book::Book(const Book& bookToBeCopied) {
 
-		//if (bookToBeCopied.m_authorName && bookToBeCopied.m_bookTitle)
-		if (bool(bookToBeCopied))
+		//if (bookToBeCopied.m_authorName != nullptr && bookToBeCopied.m_authorName[0] != 0 && bookToBeCopied.m_bookTitle != nullptr && bookToBeCopied.m_bookTitle[0] != 0)
+		if (bool(bookToBeCopied)) // if(*this) {
 		{
 			set(bookToBeCopied.m_bookTitle, bookToBeCopied.m_authorName, bookToBeCopied.m_bookCaseNum, bookToBeCopied.m_shelfNum);
 		}
@@ -126,6 +126,7 @@ namespace sdds {
 
 	Book::operator bool() const {
 		return  (m_bookTitle != nullptr && m_authorName != nullptr && m_bookTitle[0] != 0 && m_authorName[0] != 0);
+		//return m_bookTitle && m_authorName;
 	};
 
 	ostream& Book::write(ostream& ostr, bool onScreen)const {
@@ -249,9 +250,6 @@ namespace sdds {
 			ostr.fill(' ');
 
 		}
-
-
-
 		return ostr;
 	};
 
@@ -271,34 +269,42 @@ namespace sdds {
 	};
 
 	istream& Book::read(istream& istr) {
-		char bookTitle[128];
-		/*char* bookTitle = nullptr;
-		bookTitle = new char[128];
-		*/
-		/*char* authorName = nullptr;
-		authorName = new char[128];*/
-
-		char authorName[128];
-		int shelfNum;
-		int bookCaseNum;
-
-		istr.getline(bookTitle, MaxTitleLen , ',');
-		istr.getline(authorName, MaxAuthorLen , ',');
-		istr >> shelfNum;
-		extractChar(istr, '/');
-		istr >> bookCaseNum;
-		extractChar(istr, '\n');
+		char bookTitle[MaxTitleLen + 1]; //MaxTitleName 
+		/*char* booktitle = nullptr;
+		booktitle = new char[128];*/
 		
-				if (shelfNum > NoOfShelves || shelfNum < 0 || bookCaseNum > NoOfBookCases || bookCaseNum < 0)
-				{
-					istr.setstate(ios::failbit);
-				}
+		/*char* authorname = nullptr;
+		authorname = new char[128];*/
+
+		char authorName[MaxAuthorLen + 1]; //MaxAuthorName
+		int shelfNum = 0; //= 0
+		int bookCaseNum = 0; // = 0
+
+		istr.getline(bookTitle, MaxTitleLen + 1 , ',');
+		istr.getline(authorName, MaxAuthorLen + 1, ',');
+		istr >> shelfNum;
+		if (shelfNum < 1 || shelfNum > NoOfShelves) {
+			istr.setstate(ios::failbit);
+		}
+		extractChar(istr, '/');
+
+		istr >> bookCaseNum;
+		if (bookCaseNum < 1 || bookCaseNum > NoOfBookCases) {
+			istr.setstate(ios::failbit);
+		}
+		//extractChar(istr, '\n');
+		
+				//if (strlen(bookTitle) > MaxTitleLen || strlen(authorName) > MaxAuthorLen || shelfNum > NoOfShelves || shelfNum < 0 || bookCaseNum > NoOfBookCases || bookCaseNum < 0)
+				//{
+				//	istr.setstate(ios::failbit);
+				//	
+				//}
 		/*if (!validBook(bookTitle, authorName, bookCaseNum, shelfNum))
 		{
 			istr.setstate(ios::failbit);
 		}*/
 
-		if (!istr.fail())
+		if (!istr.fail()) // if(istr) {
 		{
 			set(bookTitle, authorName, bookCaseNum, shelfNum);
 		}
