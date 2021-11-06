@@ -5,7 +5,7 @@
 //  Student Name  : Mohammadhossein Sobhanmanesh
 //  Student ID    : 116523200
 //  Student Email : msobhanmanesh@myseneca.ca
-//  Date          : 2020-10-24
+//  Date          : 2020-10-27
 //  Course Section: OOP244-NAA
 // ===================================================================================
 // I have done all the coding by myself and only copied the code that my professor
@@ -57,8 +57,7 @@ namespace sdds {
 
 	Book::Book(const Book& bookToBeCopied) {
 
-		//if (bookToBeCopied.m_authorName != nullptr && bookToBeCopied.m_authorName[0] != 0 && bookToBeCopied.m_bookTitle != nullptr && bookToBeCopied.m_bookTitle[0] != 0)
-		if (bool(bookToBeCopied)) // if(*this) {
+		if (bool(bookToBeCopied)) 
 		{
 			set(bookToBeCopied.m_bookTitle, bookToBeCopied.m_authorName, bookToBeCopied.m_bookCaseNum, bookToBeCopied.m_shelfNum);
 		}
@@ -126,76 +125,10 @@ namespace sdds {
 
 	Book::operator bool() const {
 		return  (m_bookTitle != nullptr && m_authorName != nullptr && m_bookTitle[0] != 0 && m_authorName[0] != 0);
-		//return m_bookTitle && m_authorName;
 	};
 
 	ostream& Book::write(ostream& ostr, bool onScreen)const {
 
-		//if (onScreen) {
-		//
-		//	if (*this) {
-		//	
-		//		ostr.width(40);
-		//		ostr.setf(ios::left);
-		//		ostr << m_bookTitle;
-		//		ostr.unsetf(ios::left);
-
-		//		ostr << "| ";
-
-		//		ostr.setf(ios::left);
-		//		ostr.width(25);
-		//		ostr << m_authorName;
-		//		ostr.unsetf(ios::left);
-
-		//		ostr << "| ";
-
-		//		ostr << m_shelfNum << "/";
-		//		ostr.setf(ios::right);
-		//		ostr.fill('0');
-		//		ostr.width(3);
-		//		ostr << m_bookCaseNum;
-
-		//		ostr.fill(' ');
-		//		ostr.unsetf(ios::right);
-
-
-
-		//	}
-		//	else {
-		//		ostr.width(40);
-		//		ostr.setf(ios::left);
-		//		ostr.fill('.');
-		//		ostr << "Invalid Book Record ";
-		//		ostr.unsetf(ios::left);
-		//		//ostr.setf(ios::right);
-		//		ostr << "| ";
-
-		//		ostr.width(27);
-		//		ostr << "| ";
-		//		ostr.setf(ios::left);
-		//		ostr.width(5);
-		//		ostr << ".";
-		//		ostr.unsetf(ios::right);
-		//		ostr.fill(' ');
-
-		//	
-		//	}
-		//
-		//
-		//
-		//
-		//}
-		//else
-		//{
-		//	if (*this)
-		//	{
-		//		ostr << m_bookTitle << "," << m_authorName << "," << m_shelfNum << "/" << m_bookCaseNum;
-		//	}
-		//	else {
-		//	
-		//		ostr << "Invalid Book Record ";
-		//	}
-		//}
 
 		if (*this) {
 			if (onScreen) {
@@ -238,7 +171,6 @@ namespace sdds {
 			ostr.fill('.');
 			ostr << "Invalid Book Record ";
 			ostr.unsetf(ios::left);
-			//ostr.setf(ios::right);
 			ostr << "| ";
 
 			ostr.width(27);
@@ -269,16 +201,12 @@ namespace sdds {
 	};
 
 	istream& Book::read(istream& istr) {
-		char bookTitle[MaxTitleLen + 1]; //MaxTitleName 
-		/*char* booktitle = nullptr;
-		booktitle = new char[128];*/
+		char bookTitle[MaxTitleLen + 1]; 
 		
-		/*char* authorname = nullptr;
-		authorname = new char[128];*/
 
-		char authorName[MaxAuthorLen + 1]; //MaxAuthorName
-		int shelfNum = 0; //= 0
-		int bookCaseNum = 0; // = 0
+		char authorName[MaxAuthorLen + 1]; 
+		int shelfNum = 0; 
+		int bookCaseNum = 0; 
 
 		istr.getline(bookTitle, MaxTitleLen + 1 , ',');
 		istr.getline(authorName, MaxAuthorLen + 1, ',');
@@ -292,19 +220,9 @@ namespace sdds {
 		if (bookCaseNum < 1 || bookCaseNum > NoOfBookCases) {
 			istr.setstate(ios::failbit);
 		}
-		//extractChar(istr, '\n');
 		
-				//if (strlen(bookTitle) > MaxTitleLen || strlen(authorName) > MaxAuthorLen || shelfNum > NoOfShelves || shelfNum < 0 || bookCaseNum > NoOfBookCases || bookCaseNum < 0)
-				//{
-				//	istr.setstate(ios::failbit);
-				//	
-				//}
-		/*if (!validBook(bookTitle, authorName, bookCaseNum, shelfNum))
-		{
-			istr.setstate(ios::failbit);
-		}*/
 
-		if (!istr.fail()) // if(istr) {
+		if (!istr.fail()) 
 		{
 			set(bookTitle, authorName, bookCaseNum, shelfNum);
 		}
@@ -319,15 +237,7 @@ namespace sdds {
 
 		return (RO.write(ostr, true));
 
-		/*if (RO) {
-
-				RO.write(ostr, true);
-		}
-		else
-		{
-			ostr << "Invalid Book Record";
-		}*/
-		//return ostr;
+		
 	};
 
 	istream& operator>>(istream& istr, Book& RO) {
