@@ -15,14 +15,14 @@ using namespace std;
 
 namespace sdds
 {
-	
+
 	VehicleBasic::VehicleBasic(const char* licensePlateNo, int builtYear) :m_currentAddress("Factory")
 	{
 		strcpy(m_licensePlateNo, licensePlateNo);
 		m_builtYear = builtYear;
 
 	}
-	
+
 	void VehicleBasic::NewAddress(const char* address) {
 
 		if (!strcmp(m_currentAddress, address)) {
@@ -42,10 +42,25 @@ namespace sdds
 			cout.setf(ios::left);
 			cout << address << endl;
 			cout.unsetf(ios::left);
-		
+
 			//not sure if should remove the old address or not check if works both way
 			m_currentAddress[0] = '\0';
 			strcpy(m_currentAddress, address);
 		}
+	}
+
+
+	ostream& VehicleBasic::write(ostream& os) {
+
+		os << "| " << m_builtYear << " | " << m_licensePlateNo << " | " << m_currentAddress << endl;
+		return os;
+	};
+
+	istream& VehicleBasic::read(istream& in) {
+		
+		in >> m_builtYear;
+		in.getline(m_licensePlateNo, 10);
+		in.getline(m_currentAddress, 22);
+
 	}
 }

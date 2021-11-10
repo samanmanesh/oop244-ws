@@ -23,8 +23,9 @@ namespace sdds
 
 		void NewAddress(const char* address);
 
-
-
+		std::ostream& write(std::ostream& os);
+		
+		std::istream& read(std::istream& in);
 	};
 
 	
