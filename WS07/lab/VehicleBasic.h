@@ -23,22 +23,14 @@ namespace sdds
 
 		void NewAddress(const char* address);
 
-		std::ostream& write(std::ostream& os);
+		std::ostream& write(std::ostream& os)const;
 		
 		std::istream& read(std::istream& in);
 	};
 
+	std::ostream& operator<<(std::ostream& ostr, const VehicleBasic& RO);
 	
-	
-	
-
-
-
-
-	VehicleBasic::~VehicleBasic()
-	{
-	}
-
+	std::istream& operator>>(std::istream& istr, VehicleBasic& RO);
 }
 
 #endif

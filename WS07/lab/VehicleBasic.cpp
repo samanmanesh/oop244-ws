@@ -22,6 +22,9 @@ namespace sdds
 		m_builtYear = builtYear;
 
 	}
+	VehicleBasic::~VehicleBasic()
+	{
+	}
 
 	void VehicleBasic::NewAddress(const char* address) {
 
@@ -50,7 +53,7 @@ namespace sdds
 	}
 
 
-	ostream& VehicleBasic::write(ostream& os) {
+	ostream& VehicleBasic::write(ostream& os) const{
 
 		os << "| " << m_builtYear << " | " << m_licensePlateNo << " | " << m_currentAddress << endl;
 		return os;
@@ -62,5 +65,13 @@ namespace sdds
 		in.getline(m_licensePlateNo, 10);
 		in.getline(m_currentAddress, 22);
 
+	}
+
+	ostream& operator<<(ostream& ostr, const VehicleBasic& RO) {
+		return (RO.write(ostr));
+	};
+
+	istream& operator>>(istream& istr, VehicleBasic& RO) {
+		return (RO.read(istr));
 	}
 }
