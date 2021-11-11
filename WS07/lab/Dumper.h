@@ -25,6 +25,8 @@ namespace sdds
 		bool loaddCargo(double cargo);
 
 		bool unloadCargo();
+
+		std::ostream& write(std::ostream& os);
 	};
 
 	

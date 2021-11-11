@@ -55,7 +55,7 @@ namespace sdds
 
 	ostream& VehicleBasic::write(ostream& os) const{
 
-		os << "| " << m_builtYear << " | " << m_licensePlateNo << " | " << m_currentAddress << endl;
+		os << "| " << m_builtYear << " | " << m_licensePlateNo << " | " << m_currentAddress;
 		return os;
 	};
 

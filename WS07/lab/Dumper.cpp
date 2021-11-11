@@ -8,7 +8,8 @@ Section:
 #include<iostream>
 #include "Dumper.h"
 #include "VehicleBasic.h"
-
+using namespace sdds;
+using namespace std;
 namespace sdds
 {
 	Dumper::Dumper(const char* licensePlateNo, int builtYear, double dumberCapacity, const char* currentAddress) :VehicleBasic(licensePlateNo, builtYear)
@@ -39,6 +40,9 @@ namespace sdds
 		return result;
 	}
 	
-	
+	ostream& Dumper::write(ostream& os) {
+		VehicleBasic::write(os);
+		os << " | " << m_currentCargo << "/" << m_maxWeightCargo;
+	};
 	
 }
