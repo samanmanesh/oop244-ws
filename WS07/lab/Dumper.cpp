@@ -18,13 +18,16 @@ namespace sdds
 		m_currentCargo = 0;
 		NewAddress(currentAddress);
 	}
+	Dumper::~Dumper()
+	{
+	}
 
 	bool Dumper::loaddCargo(double cargo) {
 
 		bool result = false;
 		if (cargo + m_currentCargo < m_maxWeightCargo) {
 
-			m_currentCargo + cargo;
+			m_currentCargo += cargo;
 			result = true;
 		}
 		return result;
@@ -40,9 +43,29 @@ namespace sdds
 		return result;
 	}
 	
-	ostream& Dumper::write(ostream& os) {
+	ostream& Dumper::write(ostream& os) const{
 		VehicleBasic::write(os);
 		os << " | " << m_currentCargo << "/" << m_maxWeightCargo;
+		
+		return os;
 	};
 	
+	istream& Dumper::read(istream& in) {
+
+		VehicleBasic::read(in);
+		cout << "Capacity: ";
+		in >> m_maxWeightCargo;
+		cout << "Cargo: ";
+		in >> m_currentCargo;
+		
+		return in;
+	}
+
+	ostream& operator<<(ostream& ostr, const Dumper& RO) {
+		return (RO.write(ostr));
+	};
+
+	istream& operator>>(istream& istr, Dumper& RO) {
+		return (RO.read(istr));
+	}
 }

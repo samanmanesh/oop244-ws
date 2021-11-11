@@ -26,14 +26,16 @@ namespace sdds
 
 		bool unloadCargo();
 
-		std::ostream& write(std::ostream& os);
+		std::ostream& write(std::ostream& os)const;
+
+		std::istream& read(std::istream& in);
 	};
 
-	
+	std::ostream& operator<<(std::ostream& ostr, const Dumper& RO);
 
-	Dumper::~Dumper()
-	{
-	}
+	std::istream& operator>>(std::istream& istr, Dumper& RO);
+
+	
 
 
 }

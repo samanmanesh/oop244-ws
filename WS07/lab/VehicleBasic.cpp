@@ -28,7 +28,7 @@ namespace sdds
 
 	void VehicleBasic::NewAddress(const char* address) {
 
-		if (!strcmp(m_currentAddress, address)) {
+		if (strcmp(m_currentAddress, address)) {
 
 			cout << "|";
 			cout.setf(ios::right);
@@ -43,11 +43,14 @@ namespace sdds
 			cout << " ---> ";
 			cout.width(20);
 			cout.setf(ios::left);
-			cout << address << endl;
+			cout << address;
+			
+			cout << "|";
+			cout << endl;
 			cout.unsetf(ios::left);
 
 			//not sure if should remove the old address or not check if works both way
-			m_currentAddress[0] = '\0';
+			//m_currentAddress[0] = '\0';
 			strcpy(m_currentAddress, address);
 		}
 	}
@@ -64,10 +67,12 @@ namespace sdds
 		cout << "Built year :";
 		in >> m_builtYear;
 		cout << "License plate: ";
-		in.getline(m_licensePlateNo, 10);
+		in >> m_licensePlateNo;
+		//in.getline(m_licensePlateNo, 10);
 		cout << "Current location: ";
-		in.getline(m_currentAddress, 22);
-
+		//in.getline(m_currentAddress, 22);
+		in >> m_currentAddress;
+		return in;
 	}
 
 	ostream& operator<<(ostream& ostr, const VehicleBasic& RO) {
