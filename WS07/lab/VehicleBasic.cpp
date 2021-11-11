@@ -16,7 +16,7 @@ using namespace std;
 namespace sdds
 {
 
-	VehicleBasic::VehicleBasic(const char* licensePlateNo, int builtYear) :m_currentAddress("Factory")
+	VehicleBasic::VehicleBasic(const char* licensePlateNo, int builtYear):m_currentAddress("Factory")
 	{
 		strcpy(m_licensePlateNo, licensePlateNo);
 		m_builtYear = builtYear;
