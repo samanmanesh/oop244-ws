@@ -23,18 +23,11 @@ namespace sdds
 		~Dumper();
 
 		bool loaddCargo(double cargo);
+
+		bool unloadCargo();
 	};
 
-	bool Dumper::loaddCargo(double cargo) {
-		
-		bool result = false;
-		if (cargo + m_currentCargo < m_maxWeightCargo) {
-			
-			m_currentCargo + cargo;
-			result = true;
-		}
-		return result;
-	};
+	
 
 	Dumper::~Dumper()
 	{
