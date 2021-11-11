@@ -1,10 +1,16 @@
-/*
-Name:
-Email:
-Student ID:
-Data:
-Section:
-*/
+// ===================================================================================
+//  Workshop: #7
+//  Part: 1 (Lab)
+// ===================================================================================
+//  Student Name  : Mohammadhossein Sobhanmanesh
+//  Student ID    : 116523200
+//  Student Email : msobhanmanesh@myseneca.ca
+//  Date          : 2021-11-11
+//  Course Section: OOP244-NAA
+// ===================================================================================
+// I have done all the coding by myself and only copied the code that my professor
+// provided to complete my workshops and assignments.
+// ===================================================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <iomanip>
@@ -16,7 +22,7 @@ using namespace std;
 namespace sdds
 {
 
-	VehicleBasic::VehicleBasic(const char* licensePlateNo, int builtYear):m_currentAddress("Factory")
+	VehicleBasic::VehicleBasic(const char* licensePlateNo, int builtYear) :m_currentAddress("Factory")
 	{
 		strcpy(m_licensePlateNo, licensePlateNo);
 		m_builtYear = builtYear;
@@ -43,34 +49,28 @@ namespace sdds
 			cout << " ---> ";
 			cout.width(20);
 			cout.setf(ios::left);
-			cout << address;
-			
-			cout << "|";
+			cout << address << "|";
 			cout << endl;
 			cout.unsetf(ios::left);
 
-			//not sure if should remove the old address or not check if works both way
-			//m_currentAddress[0] = '\0';
 			strcpy(m_currentAddress, address);
 		}
 	}
 
 
-	ostream& VehicleBasic::write(ostream& os) const{
+	ostream& VehicleBasic::write(ostream& os) const {
 
 		os << "| " << m_builtYear << " | " << m_licensePlateNo << " | " << m_currentAddress;
 		return os;
 	};
 
 	istream& VehicleBasic::read(istream& in) {
-		
+
 		cout << "Built year :";
 		in >> m_builtYear;
 		cout << "License plate: ";
 		in >> m_licensePlateNo;
-		//in.getline(m_licensePlateNo, 10);
 		cout << "Current location: ";
-		//in.getline(m_currentAddress, 22);
 		in >> m_currentAddress;
 		return in;
 	}

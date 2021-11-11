@@ -1,10 +1,17 @@
-/*
-Name:
-Email:
-Student ID:
-Data:
-Section:
-*/
+// ===================================================================================
+//  Workshop: #7
+//  Part: 1 (Lab)
+// ===================================================================================
+//  Student Name  : Mohammadhossein Sobhanmanesh
+//  Student ID    : 116523200
+//  Student Email : msobhanmanesh@myseneca.ca
+//  Date          : 2021-11-11
+//  Course Section: OOP244-NAA
+// ===================================================================================
+// I have done all the coding by myself and only copied the code that my professor
+// provided to complete my workshops and assignments.
+// ===================================================================================
+
 #ifndef SDDS_Dumper_H
 #define SDDS_Dumper_H
 #include <iostream>
@@ -12,7 +19,6 @@ Section:
 
 namespace sdds
 {
-
 	class Dumper : public VehicleBasic
 	{
 		double m_maxWeightCargo;
@@ -34,9 +40,5 @@ namespace sdds
 	std::ostream& operator<<(std::ostream& ostr, const Dumper& RO);
 
 	std::istream& operator>>(std::istream& istr, Dumper& RO);
-
-	
-
-
 }
 #endif
