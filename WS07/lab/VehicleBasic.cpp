@@ -61,8 +61,11 @@ namespace sdds
 
 	istream& VehicleBasic::read(istream& in) {
 		
+		cout << "Built year :";
 		in >> m_builtYear;
+		cout << "License plate: ";
 		in.getline(m_licensePlateNo, 10);
+		cout << "Current location: ";
 		in.getline(m_currentAddress, 22);
 
 	}
