@@ -22,14 +22,19 @@ namespace sdds
 		Dumper(const char* licensePlateNo, int builtYear, double dumberCapacity, const char* currentAddress);
 		~Dumper();
 
+		bool loaddCargo(double cargo);
 	};
 
-	Dumper::Dumper(const char* licensePlateNo, int builtYear, double dumberCapacity, const char* currentAddress) :VehicleBasic(licensePlateNo, builtYear)
-	{
-		m_maxWeightCargo = dumberCapacity;
-		m_currentCargo = 0;
-		VehicleBasic::NewAddress(currentAddress);
-	}
+	bool Dumper::loaddCargo(double cargo) {
+		
+		bool result = false;
+		if (cargo + m_currentCargo < m_maxWeightCargo) {
+			
+			m_currentCargo + cargo;
+			result = true;
+		}
+		return result;
+	};
 
 	Dumper::~Dumper()
 	{
