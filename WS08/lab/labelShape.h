@@ -12,7 +12,18 @@ namespace sdds
 	public:
 		labelShape();
 
+		labelShape( const char* label);
+		
+		labelShape(const labelShape& lbs) = delete;
+
+		void operator = (const labelShape& lbs) = delete;
+
+		//labelShape& operator = (const labelShape& lbs) = delete;
+
 		~labelShape();
+
+
+
 
 	/*protected:
 		char* label()const;*/
@@ -34,8 +45,16 @@ namespace sdds
 	{
 	}
 
+	labelShape::labelShape(const char* label) {
+		if (label && label[0])
+		{
+			m_label = new char[strlen(label) + 1];
+			strcpy(m_label, label);
+		}
+	};
 	labelShape::~labelShape()
 	{
+		delete[] m_label;
 	}
 
 }
