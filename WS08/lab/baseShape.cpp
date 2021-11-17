@@ -13,6 +13,9 @@ namespace sdds
 	void baseShape::readShape(istream& istr) {
 	
 	};*/
+	baseShape::~baseShape()
+	{
+	}
 
 	ostream& operator<<(ostream& ostr, const baseShape& RO) {
 		RO.drawShape(ostr);

@@ -10,7 +10,7 @@ namespace sdds
 
 
 	public:
-		baseShape();
+		//baseShape();
 
 		virtual void drawShape(std::ostream& ostr)const =0;
 
@@ -25,13 +25,11 @@ namespace sdds
 	
 	std::istream& operator>>(std::istream& istr, baseShape& RO);
 
-	baseShape::baseShape()
+	/*baseShape::baseShape()
 	{
-	}
+	}*/
 
-	baseShape::~baseShape()
-	{
-	}
+	
 	
 	
 }
