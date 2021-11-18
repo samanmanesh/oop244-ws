@@ -8,7 +8,14 @@ using namespace std;
 
 namespace sdds
 {
+	lineLabel::lineLabel() :labelShape()
+	{
+		m_length = 0;
+	}
 
+	lineLabel::lineLabel(const char* label, int length) : labelShape(label) {
+		m_length = length;
+	};
 
 
 }
