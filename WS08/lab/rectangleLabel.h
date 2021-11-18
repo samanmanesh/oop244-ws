@@ -35,6 +35,37 @@ namespace sdds
 		istr.ignore(10000, '\n');
 	};
 
+	void rectangleLabel::drawShape(std::ostream& ostr)const {
+	
+		if (m_width && m_spaces)
+		{	
+			//first line
+			ostr << "+";
+			ostr.width(m_width - 2);
+			ostr.fill('-');
+			ostr << "-";
+			ostr.fill(' ');
+			ostr << "+" << endl;
+			//second line
+			ostr << "|";
+			ostr.width(m_spaces);
+			ostr << " ";
+			ostr.width(m_width - m_spaces);
+			ostr.setf(ios::left);
+			ostr << label();
+			ostr.unsetf(ios::left);
+			ostr << "|" << endl;
+			//last line
+			ostr << "+";
+			ostr.width(m_width - 2);
+			ostr.fill('-');
+			ostr << "-";
+			ostr.fill(' ');
+			ostr << "+" << endl;
+		}
+
+	};
+
 
 }
 #endif
