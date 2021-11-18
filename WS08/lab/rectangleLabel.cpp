@@ -74,7 +74,7 @@ namespace sdds
 			ostr.fill('-');
 			ostr << "-";
 			ostr.fill(' ');
-			ostr << "+" << endl;
+			ostr << "+";
 		}
 	};
 }
