@@ -1,4 +1,16 @@
-
+// ===================================================================================
+//  Workshop: #8
+//  Part: 1 (Lab)
+// ===================================================================================
+//  Student Name  : Mohammadhossein Sobhanmanesh
+//  Student ID    : 116523200
+//  Student Email : msobhanmanesh@myseneca.ca
+//  Date          : 2021-11-18
+//  Course Section: OOP244-NAA
+// ===================================================================================
+// I have done all the coding by myself and only copied the code that my professor
+// provided to complete my workshops and assignments.
+// ===================================================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string>
@@ -10,8 +22,7 @@ using namespace std;
 namespace sdds
 {
 	char* labelShape::label()const {
-		/*const char cp_label = *m_label;
-		return  (cp_label);*/
+		
 		return(m_label);
 	};
 
@@ -40,17 +51,5 @@ namespace sdds
 		m_label = new char[strlen(tmp.c_str()) + 1];
 		strcpy(m_label, tmp.c_str());
 		
-		//my own method to gets string without knowin size and usin <string>
-		/*const int size = 128;
-		char* tmp= new char[size];
-		istr.getline(tmp, size, ',');
-
-		if (istr.fail())
-		{
-			char* doubleTmp = new char[(size * 2) + 1];
-			strcpy(doubleTmp, tmp);
-			delete[] tmp;
-
-		}*/
 	};
 }
