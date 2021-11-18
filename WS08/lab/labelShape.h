@@ -22,7 +22,7 @@ namespace sdds
 
 		~labelShape();
 
-
+		void readShape(std::istream& istr);
 
 
 	/*protected:
@@ -36,26 +36,8 @@ namespace sdds
 		return  (*m_label);
 	};*/
 
-	char labelShape::label()const {
-		const char cp_label = *m_label;
-		return  (cp_label);
-	};
-
-	labelShape::labelShape()
-	{
-	}
-
-	labelShape::labelShape(const char* label) {
-		if (label && label[0])
-		{
-			m_label = new char[strlen(label) + 1];
-			strcpy(m_label, label);
-		}
-	};
-	labelShape::~labelShape()
-	{
-		delete[] m_label;
-	}
+	
+	
 
 }
 #endif
