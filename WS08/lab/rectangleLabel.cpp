@@ -19,11 +19,55 @@ namespace sdds
 
 		m_width = width;
 		m_spaces = spaces;
-		// there is some note I didn't get from instructions! m_width =0 ?
-
+		
+		int strLen = strlen(labelShape::label());
+		if (m_width < strLen + m_spaces + 2)     
+			m_width = 0;
 	};
 
 	rectangleLabel::~rectangleLabel() {}
+
+
+	void rectangleLabel::readShape(std::istream& istr) {
+
+		labelShape::readShape(istr);
+		istr >> m_width;
+		istr.ignore();
+		istr >> m_spaces;
+		istr.ignore(10000, '\n');
+	};
+
+	void rectangleLabel::drawShape(std::ostream& ostr)const {
+
+		if (m_width && m_spaces)
+		{
+			//first line
+			ostr << "+";
+			ostr.width(m_width - 2);
+			ostr.fill('-');
+			ostr << "-";
+			ostr.fill(' ');
+			ostr << "+" << endl;
+			//second line
+			ostr << "|";
+			ostr.width(m_spaces);
+			ostr << " ";
+			ostr.width(m_width - m_spaces-2);
+			ostr.setf(ios::left);
+			ostr << label();
+			ostr.unsetf(ios::left);
+			ostr << "|" << endl;
+			
+			//last line
+			ostr << "+";
+			ostr.width(m_width - 2);
+			ostr.fill('-');
+			ostr << "-";
+			ostr.fill(' ');
+			ostr << "+" << endl;
+		}
+
+	};
 }
 
 

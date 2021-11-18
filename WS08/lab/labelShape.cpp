@@ -9,9 +9,10 @@ using namespace std;
 
 namespace sdds
 {
-	char labelShape::label()const {
-		const char cp_label = *m_label;
-		return  (cp_label);
+	char* labelShape::label()const {
+		/*const char cp_label = *m_label;
+		return  (cp_label);*/
+		return(m_label);
 	};
 
 	labelShape::labelShape(){}

@@ -25,10 +25,10 @@ namespace sdds
 		void readShape(std::istream& istr);
 
 
-	/*protected:
-		char* label()const;*/
 	protected:
-		char label()const;
+		char* label()const;
+	/*protected:
+		char label()const;*/
 
 	};
 
