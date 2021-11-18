@@ -16,11 +16,24 @@ namespace sdds
 		
 		~rectangleLabel();
 
-	private:
+
+		 void drawShape(std::ostream& ostr)const ;
+
+		 void readShape(std::istream& istr);
+
+
+
 
 	};
 
+	void rectangleLabel::readShape(std::istream& istr) {
 	
+		labelShape::readShape(istr);
+		istr >> m_width;
+		istr.get();
+		istr >> m_spaces;
+		istr.ignore(10000, '\n');
+	};
 
 
 }
