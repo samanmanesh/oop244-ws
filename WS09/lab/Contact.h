@@ -76,6 +76,21 @@ namespace sdds {
 		return istr;
 	}
 
+	std::ostream& Contact::write(std::ostream& ostr)const {
+		
+		if (*this) {
+			
+			Person::write(ostr);
+			
+			ostr << m_address << endl;
+			ostr << m_city << " " << m_province << endl;
+			ostr << m_postalCode;
+			
+		}
+		return ostr;
+	
+	
+	};
 
 	void Contact::operator~() {
 		delete[] m_address;
