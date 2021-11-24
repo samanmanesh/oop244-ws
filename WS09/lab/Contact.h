@@ -97,6 +97,10 @@ namespace sdds {
 		delete[] m_city;
 		m_address = m_city = nullptr;
 	}
+
+	Contact::operator bool()const {
+		return m_address && m_city && m_province[0] && m_postalCode[0];
+	};
 }
 
 #endif
