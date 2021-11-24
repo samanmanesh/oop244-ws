@@ -18,25 +18,10 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Contact.h" />
-    <ClInclude Include="Person.h" />
-    <ClInclude Include="Utils.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Contact.cpp" />
-    <ClCompile Include="Person.cpp" />
-    <ClCompile Include="Utils.cpp" />
-    <ClCompile Include="w9_tester.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="contacts.txt" />
-    <Text Include="names.txt" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{538f5c62-3ac3-4df6-a10f-dc6b8521b17a}</ProjectGuid>
+    <ProjectGuid>{df60f2a3-1bcf-4726-8d91-d276905bcc2a}</ProjectGuid>
     <RootNamespace>lab</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -153,6 +138,21 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Contact.cpp" />
+    <ClCompile Include="nameTester.cpp" />
+    <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Contact.h" />
+    <ClInclude Include="Person.h" />
+    <ClInclude Include="Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="contacts.txt" />
+    <Text Include="names.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
