@@ -33,8 +33,8 @@ namespace sdds {
 			Person::operator=(RightOperand);
 			delAlloCopy(m_address, RightOperand.m_address);
 			delAlloCopy(m_city, RightOperand.m_city);
-			strcpy(m_province, RightOperand.m_province);
-			strcpy(m_postalCode, RightOperand.m_postalCode);
+			strCpy(m_province, RightOperand.m_province);
+			strCpy(m_postalCode, RightOperand.m_postalCode);
 		}
 		return *this;
 	}
@@ -54,12 +54,12 @@ namespace sdds {
 		if (!m_city || !m_city[0] )  // bad boy, lazy eveluation under considration ALWAYS
 			istr.setstate(std::ios::failbit);
 		istr.getline(m_province, 2 + 1, ',');
-		if (strlen(m_province) != 2 )
+		if (strLen(m_province) != 2 )
 		{
 			istr.setstate(ios::failbit);
 		}
 		istr.getline(m_postalCode, 6 + 1, '\n');
-		if (strlen(m_postalCode) != 6)
+		if (strLen(m_postalCode) != 6)
 		{
 			istr.setstate(std::ios::failbit);
 		}
@@ -78,12 +78,12 @@ namespace sdds {
 			ostr << m_city << " " << m_province << endl;
 			
 			int i = 0;
-			for ( i = 0; size_t(i) < strlen(m_postalCode)/2; i++)
+			for ( i = 0; size_t(i) < strLen(m_postalCode)/2; i++)
 			{
 				ostr << m_postalCode[i];
 			}
 			ostr << " ";
-			for ( i = strlen(m_postalCode) / 2; size_t(i) < strlen(m_postalCode) ; i++)
+			for ( i = strLen(m_postalCode) / 2; size_t(i) < strLen(m_postalCode) ; i++)
 			{
 				ostr << m_postalCode[i];
 			}
