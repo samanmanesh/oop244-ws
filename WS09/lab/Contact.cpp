@@ -1,3 +1,16 @@
+// ===================================================================================
+//  Workshop: #9
+//  Part: 1 (Lab)
+// ===================================================================================
+//  Student Name  : Mohammadhossein Sobhanmanesh
+//  Student ID    : 116523200
+//  Student Email : msobhanmanesh@myseneca.ca
+//  Date          : 2021-11-25
+//  Course Section: OOP244-NAA
+// ===================================================================================
+// I have done all the coding by myself and only copied the code that my professor
+// provided to complete my workshops and assignments.
+// ===================================================================================
 
 #define _CRT_SECURE_NO_WARNINGS
 #include "Utils.h"
@@ -64,14 +77,13 @@ namespace sdds {
 			ostr << m_address << endl;
 			ostr << m_city << " " << m_province << endl;
 			
-						
-			for (int i = 0; size_t(i) < strlen(m_postalCode)/2; i++)
+			int i = 0;
+			for ( i = 0; size_t(i) < strlen(m_postalCode)/2; i++)
 			{
 				ostr << m_postalCode[i];
 			}
-			//ostr << m_postalCode;
 			ostr << " ";
-			for (int i = strlen(m_postalCode) / 2; size_t(i) < strlen(m_postalCode) ; i++)
+			for ( i = strlen(m_postalCode) / 2; size_t(i) < strlen(m_postalCode) ; i++)
 			{
 				ostr << m_postalCode[i];
 			}
