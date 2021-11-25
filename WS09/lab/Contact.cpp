@@ -35,12 +35,14 @@ namespace sdds {
 		Person::read(istr);
 		~*this;
 		m_address = dynRead(istr, ',');
-		if (m_address && m_address[0]) istr.setstate(std::ios::failbit);
+		if (!m_address || !m_address[0])
+			istr.setstate(std::ios::failbit);
 		m_city = dynRead(istr, ',');
-		if (m_city[0] && m_city ) istr.setstate(std::ios::failbit);
+		if (!m_city[0] || !m_city ) 
+			istr.setstate(std::ios::failbit);
 		istr.getline(m_province, 2 + 1, ',');
 		
-		if (strlen(m_province) != 2 || m_province[0] == '\0' )
+		if (strlen(m_province) != 2 && m_province[0] == '\0' )
 		//if (!m_province )
 		{
 			istr.setstate(ios::failbit);
@@ -48,7 +50,7 @@ namespace sdds {
 			//istr.ignore(100, ',');
 		}
 		istr.getline(m_postalCode, 6 + 1, '\n');
-		if (strlen(m_postalCode) != 6 || m_postalCode[0]=='\0')
+		if (strlen(m_postalCode) != 6 && m_postalCode[0]=='\0')
 		//if (!m_postalCode)
 		{
 			istr.setstate(std::ios::failbit);
