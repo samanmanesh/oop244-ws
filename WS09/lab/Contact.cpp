@@ -32,30 +32,24 @@ namespace sdds {
 	}
 
 	std::istream& Contact::read(std::istream& istr) {
-		Person::read(istr);
 		~*this;
+		Person::read(istr);
 		m_address = dynRead(istr, ',');
 		if (!m_address || !m_address[0])
 			istr.setstate(std::ios::failbit);
 		m_city = dynRead(istr, ',');
-		if (!m_city[0] || !m_city ) 
+		if (!m_city || !m_city[0] )  // bad boy, lazy eveluation under considration ALWAYS
 			istr.setstate(std::ios::failbit);
 		istr.getline(m_province, 2 + 1, ',');
-		
-		if (strlen(m_province) != 2 && m_province[0] == '\0' )
-		//if (!m_province )
+		if (strlen(m_province) != 2 )
 		{
 			istr.setstate(ios::failbit);
-			//istr.setstate(std::ios::failbit);
-			//istr.ignore(100, ',');
 		}
 		istr.getline(m_postalCode, 6 + 1, '\n');
-		if (strlen(m_postalCode) != 6 && m_postalCode[0]=='\0')
-		//if (!m_postalCode)
+		if (strlen(m_postalCode) != 6)
 		{
 			istr.setstate(std::ios::failbit);
 		}
-		//if(this)istr.setstate(std::ios::failbit);
 
 		if (istr.fail()) ~*this;
 		return istr;
@@ -71,13 +65,13 @@ namespace sdds {
 			ostr << m_city << " " << m_province << endl;
 			
 						
-			for (int i = 0; i < strlen(m_postalCode)/2; i++)
+			for (int i = 0; size_t(i) < strlen(m_postalCode)/2; i++)
 			{
 				ostr << m_postalCode[i];
 			}
 			//ostr << m_postalCode;
 			ostr << " ";
-			for (int i = strlen(m_postalCode) / 2; i < strlen(m_postalCode) ; i++)
+			for (int i = strlen(m_postalCode) / 2; size_t(i) < strlen(m_postalCode) ; i++)
 			{
 				ostr << m_postalCode[i];
 			}
@@ -89,11 +83,11 @@ namespace sdds {
 	};
 
 	void Contact::operator~() {
+		Person::operator~();
 		delete[] m_address;
 		delete[] m_city;
-		m_province[0] = { 0 };
-		m_postalCode[0] = { 0 };
-
+		m_province[0] = 0;
+		m_postalCode[0] =  0;
 		m_address = m_city = nullptr;
 	}
 
