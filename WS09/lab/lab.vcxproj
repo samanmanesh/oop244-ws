@@ -140,9 +140,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Contact.cpp" />
-    <ClCompile Include="nameTester.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="w9_tester.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Contact.h" />
