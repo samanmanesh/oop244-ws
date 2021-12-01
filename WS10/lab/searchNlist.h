@@ -10,6 +10,17 @@
 #include "Collection.h"
 namespace sdds {
 
+	template <typename type>
+	bool sizeCheck(const Collection<type>& leftC, const Collection<type>& rightC) {
+		return leftC.size() > rightC.size();
+	};
+
+
+	template <typename type>
+	void listArrayElements(const char* title, const type* arrayOfTemp, int numOfElm) {
+	
+	
+	}
 
 
 
