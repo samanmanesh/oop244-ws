@@ -11,8 +11,8 @@
 namespace sdds {
 
 
-	template<typename type>
-	bool check(const Collection<type>* arrOfTmpObj, int index, const type* keyValue) {
+	template<typename type1, typename type2>
+	bool check(const type1* arrOfTmpObj, int index, const type2& keyValue) {
 		bool result = false;
 
 		result = arrOfTmpObj[index] == keyValue ? true : false;
@@ -23,14 +23,16 @@ namespace sdds {
 
 
 	template<typename type1, typename type2>
-	bool search(const Collection<type1>* arrOfTmpObj, int sizeOfArr, const type2 keyValue, const Collection<type1>& Cl) {
+	bool search(const type1* arrOfTmpObj, int sizeOfArr, const type2& keyValue, Collection<type1>& Cl) {
 		bool result = false;
 
+		//Cl.resize(0);
 		for (int i = 0; i < sizeOfArr; i++)
 		{
 			if (check(arrOfTmpObj, i, keyValue)) {
 				//arrOfTmpObj[i] == keyValue;
-				Cl = arrOfTmpObj[i];
+				//Cl = arrOfTmpObj[i];
+				Cl.add(arrOfTmpObj[i]);
 				result = true;
 			}
 		}
