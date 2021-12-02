@@ -22,8 +22,8 @@ namespace sdds {
 
 
 
-	template<typename type>
-	bool search(const Collection<type>* arrOfTmpObj, int sizeOfArr, const type* keyValue, const Collection<type>& Cl) {
+	template<typename type1, typename type2>
+	bool search(const Collection<type1>* arrOfTmpObj, int sizeOfArr, const type2 keyValue, const Collection<type1>& Cl) {
 		bool result = false;
 
 		for (int i = 0; i < sizeOfArr; i++)
@@ -34,7 +34,6 @@ namespace sdds {
 				result = true;
 			}
 		}
-
 		return result;
 	}
 
@@ -42,10 +41,10 @@ namespace sdds {
 	template <typename type>
 	void listArrayElements(const char* title, const type* arrayOfTemp, int numOfElm) {
 
-		std::cout << title << endl;
+		std::cout << title << std::endl;
 		for (int i = 0; i < numOfElm; i++)
 		{
-			std::cout << i + 1 << ": " << arrayOfTemp[i] << endl;
+			std::cout << i + 1 << ": " << arrayOfTemp[i] << std::endl;
 		}
 
 	}
