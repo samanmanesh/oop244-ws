@@ -28,9 +28,11 @@ namespace sdds {
 
 		for (int i = 0; i < sizeOfArr; i++)
 		{
-			arrOfTmpObj[i] == keyValue;
-			Cl = arrOfTmp[i];
-			result = true;
+			if (check(arrOfTmpObj, i, keyValue)) {
+				//arrOfTmpObj[i] == keyValue;
+				Cl = arrOfTmpObj[i];
+				result = true;
+			}
 		}
 
 		return result;
@@ -54,7 +56,7 @@ namespace sdds {
 	};
 
 
-	
+
 
 
 
